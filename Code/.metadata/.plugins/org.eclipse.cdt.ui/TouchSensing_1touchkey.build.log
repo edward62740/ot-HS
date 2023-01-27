@@ -1,0 +1,10 @@
+12:50:10 **** Incremental Build of configuration Debug for project TouchSensing_1touchkey ****
+make -j8 all 
+arm-none-eabi-size   TouchSensing_1touchkey.elf 
+   text	   data	    bss	    dec	    hex	filename
+  20180	     52	   1828	  22060	   562c	TouchSensing_1touchkey.elf
+Finished building: default.size.stdout
+ 
+
+12:50:10 Build Finished. 0 errors, 0 warnings. (took 355ms)
+

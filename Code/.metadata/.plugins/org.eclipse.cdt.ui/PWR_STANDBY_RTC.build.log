@@ -1,0 +1,10 @@
+17:41:35 **** Build of configuration Debug for project PWR_STANDBY_RTC ****
+make -j8 all 
+arm-none-eabi-size   PWR_STANDBY_RTC.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12108	     32	   1608	  13748	   35b4	PWR_STANDBY_RTC.elf
+Finished building: default.size.stdout
+ 
+
+17:41:35 Build Finished. 0 errors, 0 warnings. (took 294ms)
+

@@ -1,0 +1,28 @@
+12:01:57 **** Incremental Build of configuration Debug for project UART_Console ****
+make -j8 all 
+arm-none-eabi-gcc "C:/Users/Workstation/Desktop/ot-HS/Code/UART_Console/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32WB5Mxx -DUSE_HAL_DRIVER -c -I../../Inc -I../../Drivers/STM32WBxx_HAL_Driver/Inc -I../../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../../Drivers/CMSIS/Include -I../../Drivers/BSP/STM32WB5MM-DK -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Application/User/main.d" -MT"Application/User/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/User/main.o"
+C:/Users/Workstation/Desktop/ot-HS/Code/UART_Console/Src/main.c: In function '__io_putchar':
+C:/Users/Workstation/Desktop/ot-HS/Code/UART_Console/Src/main.c:312:22: error: 'huart1' undeclared (first use in this function); did you mean 'hlpuart1'?
+  312 |   HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0xFFFF);
+      |                      ^~~~~~
+      |                      hlpuart1
+C:/Users/Workstation/Desktop/ot-HS/Code/UART_Console/Src/main.c:312:22: note: each undeclared identifier is reported only once for each function it appears in
+In file included from ../../Inc/stm32wbxx_hal_conf.h:320,
+                 from ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal.h:29,
+                 from ../../Inc/main.h:30,
+                 from C:/Users/Workstation/Desktop/ot-HS/Code/UART_Console/Src/main.c:21:
+C:/Users/Workstation/Desktop/ot-HS/Code/UART_Console/Src/main.c: In function '__io_getchar':
+C:/Users/Workstation/Desktop/ot-HS/Code/UART_Console/Src/main.c:323:29: error: 'huart1' undeclared (first use in this function); did you mean 'hlpuart1'?
+  323 |   __HAL_UART_CLEAR_OREFLAG(&huart1);
+      |                             ^~~~~~
+../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_uart.h:898:55: note: in definition of macro '__HAL_UART_CLEAR_FLAG'
+  898 | #define __HAL_UART_CLEAR_FLAG(__HANDLE__, __FLAG__) ((__HANDLE__)->Instance->ICR = (__FLAG__))
+      |                                                       ^~~~~~~~~~
+C:/Users/Workstation/Desktop/ot-HS/Code/UART_Console/Src/main.c:323:3: note: in expansion of macro '__HAL_UART_CLEAR_OREFLAG'
+  323 |   __HAL_UART_CLEAR_OREFLAG(&huart1);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [Application/User/subdir.mk:31: Application/User/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+
+12:01:58 Build Failed. 3 errors, 0 warnings. (took 366ms)
+

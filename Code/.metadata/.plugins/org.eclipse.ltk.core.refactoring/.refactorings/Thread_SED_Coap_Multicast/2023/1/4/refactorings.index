@@ -1,0 +1,4 @@
+1674636407709	Move 'STM32WB5MMGHX_FLASH.ld' to 'Thread_SED_Coap_Multicast'
+1674639773099	Rename resource 'startup_stm32wb5mmghx.s'
+1674640568788	Rename resource 'main.c'
+1674640578925	Rename resource 'main.cpp'

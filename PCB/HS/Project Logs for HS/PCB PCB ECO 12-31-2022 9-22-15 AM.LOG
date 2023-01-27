@@ -1,0 +1,14 @@
+Removed Pin From Net: NetName=1V8 Pin=R2-1
+Removed Pin From Net: NetName=SCL Pin=R5-2
+Add Component: Footprint Not Found CONN10_M40-3200545R_HRW
+Add Pin To Net: Unknown Pin: Pin J1-2
+Add Pin To Net: Unknown Pin: Pin J1-3
+Add Pin To Net: Unknown Pin: Pin J1-4
+Add Pin To Net: Unknown Pin: Pin J1-5
+Add Pin To Net: Unknown Pin: Pin J1-7
+Add Pin To Net: Unknown Pin: Pin J1-9
+Add Pin To Net: Unknown Pin: Pin J1-10
+Added Pin To Net: NetName=NetLabel28 Pin=R5-2
+Added Net: Name=NetLabel28
+Add Class Member: Failed to add class member : Component J1 M40-3200545R
+Added Member To Class: ClassName=main Member=Component R4 10 kOhms

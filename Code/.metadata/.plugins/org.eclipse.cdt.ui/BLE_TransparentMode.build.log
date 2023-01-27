@@ -1,0 +1,10 @@
+12:48:10 **** Incremental Build of configuration Debug for project BLE_TransparentMode ****
+make -j8 all 
+arm-none-eabi-size   BLE_TransparentMode.elf 
+   text	   data	    bss	    dec	    hex	filename
+  56912	    264	  10519	  67695	  1086f	BLE_TransparentMode.elf
+Finished building: default.size.stdout
+ 
+
+12:48:11 Build Finished. 0 errors, 0 warnings. (took 415ms)
+
