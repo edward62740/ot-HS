@@ -1,10 +1,17 @@
-11:04:53 **** Incremental Build of configuration Debug for project Thread_Coap_Generic ****
+18:37:01 **** Incremental Build of configuration Debug for project Thread_Coap_Generic ****
 make -j8 all 
+arm-none-eabi-gcc "C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/stm32wbxx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER '-DOPENTHREAD_CONFIG_FILE=<openthread_api_config_ftd.h>' -DTHREAD_WB -DSTM32WB55xx -c -I../../Core/Inc -I../../STM32_WPAN/App -I../../Middlewares/ST/STM32_WPAN -I../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../../Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/platform -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/third_party/mbedtls/repo/include -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/src/core -I../../Middlewares/ST/STM32_WPAN/utilities -I../../Utilities/LCD -I../../Utilities/lpm/tiny_lpm -I../../Utilities/sequencer -I../../Drivers/STM32WBxx_HAL_Driver/Inc -I../../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Include -I../../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../../Drivers/BSP/Components/Common -I../../Drivers/BSP/STM32WB5MM-DK -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Application/User/stm32wbxx_hal_msp.d" -MT"Application/User/stm32wbxx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/User/stm32wbxx_hal_msp.o"
+arm-none-eabi-gcc -o "Thread_Coap_Generic.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Workstation\Desktop\ot-HS\Code\Thread_Coap_Generic\STM32CubeIDE\STM32WB5MMGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Thread_Coap_Generic.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Thread_Coap_Generic.elf
+ 
 arm-none-eabi-size   Thread_Coap_Generic.elf 
+arm-none-eabi-objdump -h -S  Thread_Coap_Generic.elf  > "Thread_Coap_Generic.list"
    text	   data	    bss	    dec	    hex	filename
-  55816	    161	  19406	  75383	  12677	Thread_Coap_Generic.elf
+  37092	     61	  14738	  51891	   cab3	Thread_Coap_Generic.elf
 Finished building: default.size.stdout
  
+Finished building: Thread_Coap_Generic.list
+ 
 
-11:04:54 Build Finished. 0 errors, 0 warnings. (took 504ms)
+18:37:02 Build Finished. 0 errors, 0 warnings. (took 1s.360ms)
 

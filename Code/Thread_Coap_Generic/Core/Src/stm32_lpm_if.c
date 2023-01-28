@@ -158,7 +158,7 @@ void PWR_EnterStopMode(void)
   /************************************************************************************
    * ENTER STOP MODE
    ***********************************************************************************/
-  LL_PWR_SetPowerMode(LL_PWR_MODE_STOP2);
+
 
   LL_LPM_EnableDeepSleep(); /**< Set SLEEPDEEP bit of Cortex System Control Register */
 

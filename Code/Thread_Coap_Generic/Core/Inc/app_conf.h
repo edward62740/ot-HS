@@ -100,7 +100,7 @@
  *
  ******************************************************************************/
 
-#define CFG_FULL_LOW_POWER    0
+#define CFG_FULL_LOW_POWER    1
 
 #if (CFG_FULL_LOW_POWER == 1)
 #undef CFG_LPM_SUPPORTED
@@ -207,7 +207,7 @@ typedef enum
  * This shall be set to 0 in a final product
  *
  */
-#define CFG_HW_RESET_BY_FW         1
+#define CFG_HW_RESET_BY_FW         0
 
 /**
  * keep debugger enabled while in any low power mode when set to 1
@@ -217,7 +217,7 @@ typedef enum
 
 #if (CFG_FULL_LOW_POWER == 1)
 #undef CFG_DEBUGGER_SUPPORTED
-#define CFG_DEBUGGER_SUPPORTED    0
+#define CFG_DEBUGGER_SUPPORTED    1
 #endif /* CFG_FULL_LOW_POWER */
 
 /*****************************************************************************
