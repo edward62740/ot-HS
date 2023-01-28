@@ -1,0 +1,7 @@
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Core/Src/freertos_port.c:87:6:vPortSuppressTicksAndSleep	24	static,ignoring_inline_asm
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Core/Src/freertos_port.c:175:6:vPortSetupTimerInterrupt	8	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Core/Src/freertos_port.c:200:13:LpTimerInit	8	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Core/Src/freertos_port.c:215:13:LpTimerCb	4	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Core/Src/freertos_port.c:232:13:LpTimerStart	32	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Core/Src/freertos_port.c:269:13:LpEnter	8	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Core/Src/freertos_port.c:285:17:LpGetElapsedTime	56	static

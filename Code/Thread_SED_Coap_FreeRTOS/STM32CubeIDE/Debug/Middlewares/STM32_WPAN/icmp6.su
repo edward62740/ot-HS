@@ -1,0 +1,4 @@
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/icmp6.c:35:17:otIcmp6GetEchoMode	24	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/icmp6.c:51:6:otIcmp6SetEchoMode	24	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/icmp6.c:67:9:otIcmp6RegisterHandler	24	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/icmp6.c:85:9:otIcmp6SendEchoRequest	32	static

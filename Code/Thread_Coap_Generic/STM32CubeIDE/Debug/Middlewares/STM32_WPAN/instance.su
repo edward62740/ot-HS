@@ -1,0 +1,10 @@
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/instance.c:54:13:otInstanceInitSingle	16	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/instance.c:71:6:otInstanceIsInitialized	24	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/instance.c:87:6:otInstanceFinalize	24	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/instance.c:102:6:otInstanceReset	24	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/instance.c:156:9:otSetStateChangedCallback	32	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/instance.c:176:6:otRemoveStateChangeCallback	32	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/instance.c:195:6:otInstanceFactoryReset	24	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/instance.c:210:9:otInstanceErasePersistentInfo	24	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/instance.c:244:13:otGetVersionString	16	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/instance.c:260:13:otGetRadioVersionString	24	static

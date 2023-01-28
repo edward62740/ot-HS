@@ -16,3 +16,7 @@
 1674809656559	Delete resource 'Thread_Coap_Generic'
 1674809884952	Delete resource 'Thread_Coap_Generic/Drivers/BSP'
 1674812814304	Delete resource 'Thread_Coap_Generic/Utilities/stm32_lcd.c'
+1674864745201	Delete resource 'BLE_TransparentMode'
+1674864746417	Delete resource 'BLE_HeartRate'
+1674864747631	Delete resource 'Thread_SED_Coap_Multicast'
+1674868139975	Delete resource 'Thread_Coap_Generic'

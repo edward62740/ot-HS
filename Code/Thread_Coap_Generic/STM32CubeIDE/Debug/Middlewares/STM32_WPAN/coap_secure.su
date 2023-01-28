@@ -1,0 +1,17 @@
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/coap_secure.c:39:9:otCoapSecureStart	24	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/coap_secure.c:57:6:otCoapSecureSetCertificate	32	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/coap_secure.c:80:6:otCoapSecureSetCaCertificateChain	32	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/coap_secure.c:101:6:otCoapSecureSetPsk	32	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/coap_secure.c:126:9:otCoapSecureGetPeerCertificateBase64	32	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/coap_secure.c:148:6:otCoapSecureSetSslAuthMode	24	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/coap_secure.c:164:9:otCoapSecureConnect	32	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/coap_secure.c:188:6:otCoapSecureDisconnect	24	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/coap_secure.c:203:6:otCoapSecureIsConnected	24	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/coap_secure.c:219:6:otCoapSecureIsConnectionActive	24	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/coap_secure.c:235:6:otCoapSecureStop	24	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/coap_secure.c:277:9:otCoapSecureSendRequest	32	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/coap_secure.c:333:6:otCoapSecureAddResource	24	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/coap_secure.c:349:6:otCoapSecureRemoveResource	24	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/coap_secure.c:365:6:otCoapSecureSetClientConnectedCallback	32	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/coap_secure.c:386:6:otCoapSecureSetDefaultHandler	32	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/coap_secure.c:431:9:otCoapSecureSendResponse	32	static

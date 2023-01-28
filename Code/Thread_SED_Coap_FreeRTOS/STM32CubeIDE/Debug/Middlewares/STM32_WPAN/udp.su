@@ -1,0 +1,11 @@
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/udp.c:35:9:otUdpAddReceiver	24	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/udp.c:52:9:otUdpRemoveReceiver	24	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/udp.c:69:9:otUdpSendDatagram	32	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/udp.c:87:12:otUdpNewMessage	24	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/udp.c:104:9:otUdpOpen	32	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/udp.c:123:6:otUdpIsOpen	24	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/udp.c:141:6:otUdpIsPortInUse	24	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/udp.c:159:9:otUdpClose	24	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/udp.c:176:9:otUdpBind	32	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/udp.c:195:9:otUdpConnect	32	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/udp.c:213:9:otUdpSend	32	static

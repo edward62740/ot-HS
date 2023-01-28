@@ -1,0 +1,8 @@
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/netdata.c:34:9:otNetDataGet	32	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/netdata.c:54:9:otNetDataGetNextOnMeshPrefix	32	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/netdata.c:92:9:otNetDataGetNextRoute	32	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/netdata.c:111:9:otNetDataGetNextService	32	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/netdata.c:129:9:otNetDataGetVersion	24	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/netdata.c:145:9:otNetDataGetStableVersion	24	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/netdata.c:161:9:otNetDataSteeringDataCheckJoiner	24	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/netdata.c:178:9:otNetDataSteeringDataCheckJoinerWithDiscerner	24	static

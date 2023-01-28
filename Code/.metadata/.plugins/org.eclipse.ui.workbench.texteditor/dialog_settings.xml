@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="volt"/>
+		<item key="selection" value="Region"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="volt"/>
-			<item value="vdd"/>
-			<item value="display"/>
-			<item value="ipcc"/>
-			<item value="55"/>
-			<item value="stm32wb"/>
-			<item value="stm32"/>
-			<item value="stm32wb55"/>
-			<item value="osc_in"/>
-			<item value="osc"/>
-			<item value="USART"/>
-			<item value="usart"/>
-			<item value="wpan"/>
-			<item value="WPAN"/>
-			<item value="stm32_WPAN"/>
+			<item value="region"/>
+			<item value="otpl"/>
+			<item value="ot"/>
+			<item value="invalid"/>
+			<item value="state"/>
+			<item value="scan"/>
+			<item value="CFG_LPM_SUPPORTED"/>
+			<item value="CFG_FULL_LOW_POWER"/>
+			<item value="advertise"/>
+			<item value="undef"/>
+			<item value="LL_C2"/>
+			<item value="boot"/>
+			<item value="pwr"/>
+			<item value="cr4"/>
+			<item value="c2boot"/>
 		</list>
 		<list key="replacehistory">
 		</list>

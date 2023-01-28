@@ -1,0 +1,4 @@
+../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h:1274:22:LL_APB2_GRP1_EnableClock	24	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Core/Src/stm32wbxx_hal_timebase_tim.c:81:19:HAL_InitTick	56	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Core/Src/stm32wbxx_hal_timebase_tim.c:134:6:HAL_SuspendTick	4	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Core/Src/stm32wbxx_hal_timebase_tim.c:146:6:HAL_ResumeTick	4	static
