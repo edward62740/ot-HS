@@ -1,10 +1,20 @@
-13:45:39 **** Build of configuration Debug for project Thread_SED_Coap_FreeRTOS ****
+15:39:45 **** Build of configuration Debug for project Thread_SED_Coap_FreeRTOS ****
 make -j8 all 
+arm-none-eabi-gcc "C:/Users/Workstation/Desktop/ot-HS/Code/Thread_SED_Coap_FreeRTOS/Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_STM32WBXX_NUCLEO '-DOPENTHREAD_CONFIG_FILE=<openthread_api_config_mtd.h>' -DTHREAD_WB -DDEBUG -DSTM32WB55xx -c -I../../Drivers/STM32WBxx_HAL_Driver/Inc -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/third_party/mbedtls/repo/include/mbedtls -I../../Drivers/CMSIS/Include -I../../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../../Drivers/BSP/P-NUCLEO-WB55.Nucleo -I../../Core/Inc -I../../STM32_WPAN/App -I../../STM32_WPAN/Target -I../../Utilities/lpm/tiny_lpm -I../../Utilities/sequencer -I../../Middlewares/ST/STM32_WPAN -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread -I../../Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api -I../../Middlewares/ST/STM32_WPAN/thread/openthread -I../../Middlewares/ST/STM32_WPAN/utilities -I../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/vcp -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/platform -I../../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../../Middlewares/Third_Party/FreeRTOS/Source/include -I../../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/third_party/mbedtls/repo/include -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/src/core -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Application/User/main.d" -MT"Application/User/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/User/main.o"
+arm-none-eabi-gcc -o "Thread_SED_Coap_FreeRTOS.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Workstation\Desktop\ot-HS\Code\Thread_SED_Coap_FreeRTOS\STM32CubeIDE\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Thread_SED_Coap_FreeRTOS.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Thread_SED_Coap_FreeRTOS.elf
+ 
 arm-none-eabi-size   Thread_SED_Coap_FreeRTOS.elf 
+arm-none-eabi-objdump -h -S  Thread_SED_Coap_FreeRTOS.elf  > "Thread_SED_Coap_FreeRTOS.list"
+arm-none-eabi-objcopy  -O binary  Thread_SED_Coap_FreeRTOS.elf  "Thread_SED_Coap_FreeRTOS.bin"
    text	   data	    bss	    dec	    hex	filename
   59532	     69	  33514	  93115	  16bbb	Thread_SED_Coap_FreeRTOS.elf
 Finished building: default.size.stdout
  
+Finished building: Thread_SED_Coap_FreeRTOS.bin
+ 
+Finished building: Thread_SED_Coap_FreeRTOS.list
+ 
 
-13:45:40 Build Finished. 0 errors, 0 warnings. (took 808ms)
+15:39:47 Build Finished. 0 errors, 0 warnings. (took 2s.252ms)
 

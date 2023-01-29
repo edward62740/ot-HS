@@ -14,7 +14,7 @@ org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:PWR_STANDBY_RTC/activeLaunchTar
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Thread_Coap_Generic/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Thread_Coap_Generic/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Thread_SED_Coap_FreeRTOS\ Debug/activeLaunchMode=debug
-org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Thread_SED_Coap_FreeRTOS/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Thread_SED_Coap_FreeRTOS/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Thread_SED_Coap_Multicast\ Debug/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Thread_SED_Coap_Multicast/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:TouchSensing_1touchkey\ Debug/activeLaunchMode=run

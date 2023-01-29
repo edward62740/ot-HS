@@ -137,6 +137,21 @@ int main(void)
   /* Init code for STM32_WPAN */
   MX_APPE_Init();
 
+
+  GPIO_InitTypeDef gpio_config = {0};
+
+   gpio_config.Pull = GPIO_NOPULL;
+   gpio_config.Mode = GPIO_MODE_ANALOG;
+
+   gpio_config.Pin = GPIO_PIN_8 | GPIO_PIN_9;
+
+   __HAL_RCC_GPIOB_CLK_ENABLE();
+   HAL_GPIO_Init(GPIOB, &gpio_config);
+   __HAL_RCC_GPIOB_CLK_DISABLE();
+   gpio_config.Pin = GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3;
+   __HAL_RCC_GPIOC_CLK_ENABLE();
+   HAL_GPIO_Init(GPIOC, &gpio_config);
+   __HAL_RCC_GPIOC_CLK_DISABLE();
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -210,10 +225,10 @@ void PeriphCommonClock_Config(void)
 
   /** Initializes the peripherals clock
   */
-  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_SMPS|RCC_PERIPHCLK_RFWAKEUP;
+  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_RFWAKEUP;
   PeriphClkInitStruct.RFWakeUpClockSelection = RCC_RFWKPCLKSOURCE_LSE;
-  PeriphClkInitStruct.SmpsClockSelection = RCC_SMPSCLKSOURCE_HSE;
-  PeriphClkInitStruct.SmpsDivSelection = RCC_SMPSCLKDIV_RANGE0;
+  //PeriphClkInitStruct.SmpsClockSelection = RCC_SMPSCLKSOURCE_HSE;
+ // PeriphClkInitStruct.SmpsDivSelection = RCC_SMPSCLKDIV_RANGE0;
 
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
   {

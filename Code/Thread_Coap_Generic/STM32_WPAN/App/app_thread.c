@@ -214,6 +214,7 @@ void APP_THREAD_Init( void )
   APP_THREAD_InitPayloadWrite();
   /* USER CODE END APP_THREAD_INIT_2 */
   UTIL_LPM_SetStopMode(1 << CFG_LPM_APP_THREAD, UTIL_LPM_ENABLE);
+
   /* Allow the 800_15_4 IP to enter in low power mode */
   SHCI_C2_RADIO_AllowLowPower(THREAD_IP,TRUE);
 }
@@ -308,7 +309,7 @@ void APP_THREAD_SetSleepyEndDeviceMode(void)
    * in 'sleepy end device' mode, it will send an ACK_Request every 5 sec.
    * This message will act as keep alive message.
    */
-  otLinkSetPollPeriod(NULL, 2000);
+  otLinkSetPollPeriod(NULL, 15000);
 
   /* Set the sleepy end device mode */
   OT_LinkMode.mRxOnWhenIdle = 0;
@@ -1061,6 +1062,7 @@ static void Send_CLI_Ack_For_OT(void)
 
   /* Notify M0 that characters have been sent to UART */
   TL_THREAD_CliSendAck();
+
 }
 
 /**

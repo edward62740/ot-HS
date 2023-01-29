@@ -19,7 +19,19 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32_lpm.h"
 #include "utilities_conf.h"
+#include "app_common.h"
+#include "main.h"
+#include "app_entry.h"
+#include "app_thread.h"
+#include "app_conf.h"
+#include "hw_conf.h"
 
+#include "stm_logging.h"
+#include "shci_tl.h"
+#include "stm32_lpm.h"
+#include "dbg_trace.h"
+#include "shci.h"
+#include "otp.h"
 /** @addtogroup TINY_LPM
   * @{
   */
