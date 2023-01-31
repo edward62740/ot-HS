@@ -21,6 +21,7 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+Application/Sensors/sht4x-5.3.0 \
 Application/Startup \
 Application/User/Core \
 Application/User/STM32_WPAN/App \

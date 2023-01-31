@@ -70,7 +70,13 @@ Application/User/main.o: \
  ../../Drivers/BSP/STM32WB5MM-DK/../Components/ssd1315/ssd1315_reg.h \
  ../../Drivers/BSP/STM32WB5MM-DK/../../../Utilities/Fonts/fonts.h \
  ../../Utilities/LCD/stm32_lcd.h ../../Utilities/LCD/../Fonts/fonts.h \
- ../../Drivers/BSP/Components/Common/lcd.h ../../Core/Inc/app_common.h
+ ../../Drivers/BSP/Components/Common/lcd.h ../../Core/Inc/app_common.h \
+ ../../Middlewares/ST/STM32_WPAN/utilities/dbg_trace.h \
+ ../../Core/Inc/stm_logging.h \
+ C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sensirion_i2c.h \
+ C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sensirion_arch_config.h \
+ C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sht4x.h \
+ C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sensirion_i2c.h
 ../../Core/Inc/main.h:
 ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal.h:
 ../../Core/Inc/stm32wbxx_hal_conf.h:
@@ -145,3 +151,9 @@ Application/User/main.o: \
 ../../Utilities/LCD/../Fonts/fonts.h:
 ../../Drivers/BSP/Components/Common/lcd.h:
 ../../Core/Inc/app_common.h:
+../../Middlewares/ST/STM32_WPAN/utilities/dbg_trace.h:
+../../Core/Inc/stm_logging.h:
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sensirion_i2c.h:
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sensirion_arch_config.h:
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sht4x.h:
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sensirion_i2c.h:

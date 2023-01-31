@@ -1,0 +1,8 @@
+../Application/Sensors/sht4x-5.3.0/sht4x.c:57:9:sht4x_measure_blocking_read	24	static
+../Application/Sensors/sht4x-5.3.0/sht4x.c:67:9:sht4x_measure	8	static
+../Application/Sensors/sht4x-5.3.0/sht4x.c:71:9:sht4x_read	24	static
+../Application/Sensors/sht4x-5.3.0/sht4x.c:87:9:sht4x_probe	16	static
+../Application/Sensors/sht4x-5.3.0/sht4x.c:93:6:sht4x_enable_low_power_mode	16	static
+../Application/Sensors/sht4x-5.3.0/sht4x.c:103:9:sht4x_read_serial	24	static
+../Application/Sensors/sht4x-5.3.0/sht4x.c:120:13:sht4x_get_driver_version	4	static
+../Application/Sensors/sht4x-5.3.0/sht4x.c:124:9:sht4x_get_configured_address	4	static

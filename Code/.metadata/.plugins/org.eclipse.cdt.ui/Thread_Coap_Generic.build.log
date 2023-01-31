@@ -1,10 +1,10 @@
-16:00:09 **** Incremental Build of configuration Debug for project Thread_Coap_Generic ****
+18:01:04 **** Incremental Build of configuration Debug for project Thread_Coap_Generic ****
 make -j8 all 
 arm-none-eabi-size   Thread_Coap_Generic.elf 
    text	   data	    bss	    dec	    hex	filename
-  38000	     61	  14738	  52799	   ce3f	Thread_Coap_Generic.elf
+  57240	    161	  19542	  76943	  12c8f	Thread_Coap_Generic.elf
 Finished building: default.size.stdout
  
 
-16:00:10 Build Finished. 0 errors, 0 warnings. (took 554ms)
+18:01:05 Build Finished. 0 errors, 0 warnings. (took 535ms)
 

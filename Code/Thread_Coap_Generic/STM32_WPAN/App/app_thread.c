@@ -105,7 +105,7 @@ static void APP_THREAD_CoapSendRequest(otCoapResource* aCoapRessource,
     otCoapResponseHandler aHandler,
     void *aContext);
 
-static void APP_THREAD_CoapRequestHandler(void                * pContext,
+static void APP_THREAD_CoapPermissionsRequestHandler(void                * pContext,
                                           otMessage           * pMessage,
                                           const otMessageInfo * pMessageInfo);
 static void APP_THREAD_CoapSendDataResponse(otMessage    * pMessage,
@@ -150,16 +150,21 @@ PLACE_IN_SECTION("MB_MEM2") ALIGN(4) static TL_CmdPacket_t ThreadCliNotBuffer;
 extern uint8_t g_ot_notification_allowed;
 
 /* USER CODE BEGIN PV */
-static otCoapResource OT_Ressource = {C_RESSOURCE, APP_THREAD_CoapRequestHandler,"MyOwnContext", NULL};
+static otCoapResource OT_Ressource = {C_RESSOURCE, APP_THREAD_CoapPermissionsRequestHandler,"permissions", NULL};
 static otMessageInfo OT_MessageInfo = {0};
 static otMessage* pOT_Message = NULL;
 static otMessage* pOT_MessageResponse = NULL;
 
 static uint8_t PayloadWrite[COAP_PAYLOAD_LENGTH]= {0};
 static uint8_t PayloadRead[COAP_PAYLOAD_LENGTH]= {0};
-static uint8_t TimerID;
-/* USER CODE END PV */
 
+/* USER CODE END PV */
+static const uint32_t coapMessageIntervalMs = (5 * 1000 * 1000 / CFG_TS_TICK_VAL);
+static uint8_t coapMessageTimerId;
+
+
+char resource_name[32];
+otIp6Address brAddr;
 /* Functions Definition ------------------------------------------------------*/
 
 void APP_THREAD_Init( void )
@@ -202,20 +207,19 @@ void APP_THREAD_Init( void )
   UTIL_SEQ_RegTask( 1<<(uint32_t)CFG_TASK_MSG_FROM_M0_TO_M4, UTIL_SEQ_RFU, APP_THREAD_ProcessMsgM0ToM4);
 
   /* USER CODE BEGIN INIT TASKS */
-  //UTIL_SEQ_RegTask( 1<<(uint32_t)CFG_TASK_COAP_MSG_BUTTON, UTIL_SEQ_RFU, APP_THREAD_SendCoapMsg);
-  /* USER CODE END INIT TASKS */
   APP_THREAD_SetSleepyEndDeviceMode();
   /* Initialize and configure the Thread device*/
   APP_THREAD_DeviceConfig();
 
-  /* USER CODE BEGIN APP_THREAD_INIT_2 */
-  HW_TS_Create(CFG_TIM_PROC_ID_ISR, &TimerID, hw_ts_SingleShot, APP_THREAD_TimingElapsed);
-
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_SET);
+  HW_TS_Create(CFG_TIM_PROC_ID_ISR, &coapMessageTimerId, hw_ts_Repeated, APP_THREAD_SendCoapMsg);
+  HW_TS_Start(coapMessageTimerId, coapMessageIntervalMs);
   APP_THREAD_InitPayloadWrite();
-  /* USER CODE END APP_THREAD_INIT_2 */
+
+
   UTIL_LPM_SetStopMode(1 << CFG_LPM_APP_THREAD, UTIL_LPM_ENABLE);
 
-  /* Allow the 800_15_4 IP to enter in low power mode */
+  /* Allow the 802_15_4 IP to enter in low power mode */
   SHCI_C2_RADIO_AllowLowPower(THREAD_IP,TRUE);
 }
 
@@ -631,40 +635,57 @@ static void APP_THREAD_CoapSendRequest(otCoapResource* aCoapRessource,
  * @param pMessageInfo : Message information
  * @retval None
  */
-static void APP_THREAD_CoapRequestHandler(void                 * pContext,
-                                          otMessage            * pMessage,
-                                          const otMessageInfo  * pMessageInfo)
+static void APP_THREAD_CoapPermissionsRequestHandler(void *pContext,
+		otMessage *pMessage, const otMessageInfo *pMessageInfo)
 
 {
-  static uint8_t flagToggle = FALSE;
+
   
   APP_DBG(" Received CoAP request (context = %s)",pContext);
   /* USER CODE BEGIN APP_THREAD_CoapRequestHandler */
-  if (otMessageRead(pMessage, otMessageGetOffset(pMessage), &PayloadRead, sizeof(PayloadRead)) != sizeof(PayloadRead))
+  //GPIO_PinOutSet(IP_LED_PORT, IP_LED_PIN);
+  //printIPv6Addr(&aMessageInfo->mPeerAddr);
+  brAddr = pMessageInfo->mPeerAddr;
+  otError error = OT_ERROR_NONE;
+  otMessage *responseMessage;
+  otCoapCode responseCode = OT_COAP_CODE_CHANGED;
+  otCoapCode messageCode = otCoapMessageGetCode(pMessage);
+
+  responseMessage = otCoapNewMessage((otInstance*) pContext, NULL);
+
+  otCoapMessageInitResponse(responseMessage, pMessage,
+                            OT_COAP_TYPE_ACKNOWLEDGMENT, responseCode);
+  otCoapMessageSetToken(responseMessage, otCoapMessageGetToken(pMessage),
+                        otCoapMessageGetTokenLength(pMessage));
+  otCoapMessageSetPayloadMarker(responseMessage);
+
+
+  uint16_t offset = otMessageGetOffset(pMessage);
+  otMessageRead(pMessage, offset, resource_name, sizeof(resource_name)-1);
+  //otCliOutputFormat("Unique resource ID: %s\n", resource_name);
+
+  if (OT_COAP_CODE_GET == messageCode)
   {
-    APP_THREAD_Error(ERR_THREAD_MESSAGE_READ, 0);
+
+      error = otMessageAppend(responseMessage, "ack", 3);
+      error = otCoapSendResponse((otInstance*) pContext, responseMessage,
+                                 pMessageInfo);
+  }
+  else
+  {
+      error = otMessageAppend(responseMessage, "nack", 4);
+      otCoapMessageSetCode(responseMessage, OT_COAP_CODE_METHOD_NOT_ALLOWED);
+      error = otCoapSendResponse((otInstance*) pContext, responseMessage,
+                                 pMessageInfo);
   }
 
-  if (APP_THREAD_CheckMsgValidity() == true)
+  if (error != OT_ERROR_NONE && responseMessage != NULL)
   {
-    if (flagToggle == FALSE)
-    {
-
-        flagToggle = TRUE;
-    }
-    else
-    {
-
-        flagToggle = FALSE;
-    }
+      otMessageFree(responseMessage);
   }
-  /* USER CODE END APP_THREAD_CoapRequestHandler */
 
-  /* If Message is Confirmable, send response */
-  if (otCoapMessageGetType(pMessage) == OT_COAP_TYPE_CONFIRMABLE)
-  {
-    APP_THREAD_CoapSendDataResponse(pMessage, pMessageInfo);
-  }
+
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_RESET);
 }
 
 /**
@@ -753,8 +774,10 @@ static void APP_THREAD_InitPayloadWrite(void)
  */
 static void APP_THREAD_SendCoapMsg(void)
 {
-  APP_DBG("********* STEP 1: Send a CoAP NON-CONFIRMABLE PUT Request *********");
+  APP_DBG("In appthread handler*");
+
   /* Send a NON-CONFIRMABLE PUT Request */
+  /*
   APP_THREAD_CoapSendRequest(&OT_Ressource,
       OT_COAP_TYPE_NON_CONFIRMABLE,
       OT_COAP_CODE_PUT,
@@ -764,30 +787,9 @@ static void APP_THREAD_SendCoapMsg(void)
       sizeof(PayloadWrite),
       NULL,
       NULL);
-
-  /* Insert Delay here using Hw timer server */
-  /* Start the timer */
-  HW_TS_Start(TimerID, (uint32_t)WAIT_TIMEOUT);
-  UTIL_SEQ_WaitEvt(EVENT_TIMER);
-
-  APP_DBG("********* STEP 2: Send a CoAP CONFIRMABLE PUT Request *********");
-  /* Send a CONFIRMABLE PUT Request */
-  APP_THREAD_CoapSendRequest(&OT_Ressource,
-      OT_COAP_TYPE_CONFIRMABLE,
-      OT_COAP_CODE_PUT,
-      MULICAST_FTD_MED,
-      NULL,
-      PayloadWrite,
-      sizeof(PayloadWrite),
-      APP_THREAD_CoapDataRespHandler,
-      NULL);
+*/
 }
 
-static void APP_THREAD_TimingElapsed(void)
-{
-  APP_DBG("--- APP_THREAD_TimingElapsed ---");
-  UTIL_SEQ_SetEvt(EVENT_TIMER);
-}
 
 /**
  * @brief  Compare the message received versus the original message.

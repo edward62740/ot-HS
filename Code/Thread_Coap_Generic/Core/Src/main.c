@@ -39,7 +39,10 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-
+#include "dbg_trace.h"
+#include "stm_logging.h"
+#include "sensirion_i2c.h"
+#include "sht4x.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -67,7 +70,7 @@ UART_HandleTypeDef hlpuart1;
 UART_HandleTypeDef huart1;
 DMA_HandleTypeDef hdma_lpuart1_tx;
 DMA_HandleTypeDef hdma_usart1_tx;
-
+I2C_HandleTypeDef hi2c1;
 RTC_HandleTypeDef hrtc;
 
 /* USER CODE BEGIN PV */
@@ -82,6 +85,7 @@ static void MX_DMA_Init(void);
 static void MX_RF_Init(void);
 static void MX_RTC_Init(void);
 static void MX_IPCC_Init(void);
+static void MX_I2C1_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -130,34 +134,27 @@ int main(void)
   MX_DMA_Init();
   MX_RF_Init();
   MX_RTC_Init();
+  MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
 
+      /*--[ Scanning Done ]--*/
   /* USER CODE END 2 */
 
   /* Init code for STM32_WPAN */
   MX_APPE_Init();
 
 
-  GPIO_InitTypeDef gpio_config = {0};
 
-   gpio_config.Pull = GPIO_NOPULL;
-   gpio_config.Mode = GPIO_MODE_ANALOG;
 
-   gpio_config.Pin = GPIO_PIN_8 | GPIO_PIN_9;
-
-   __HAL_RCC_GPIOB_CLK_ENABLE();
-   HAL_GPIO_Init(GPIOB, &gpio_config);
-   __HAL_RCC_GPIOB_CLK_DISABLE();
-   gpio_config.Pin = GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3;
-   __HAL_RCC_GPIOC_CLK_ENABLE();
-   HAL_GPIO_Init(GPIOC, &gpio_config);
-   __HAL_RCC_GPIOC_CLK_DISABLE();
+   sensirion_i2c_init(&hi2c1);
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
+
     MX_APPE_Process();
+
 
     /* USER CODE BEGIN 3 */
   }
@@ -264,6 +261,63 @@ static void MX_IPCC_Init(void)
   /* USER CODE END IPCC_Init 2 */
 
 }
+
+
+/**
+  * @brief I2C1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_I2C1_Init(void) {
+
+	/* USER CODE BEGIN I2C1_Init 0 */
+
+	/* USER CODE END I2C1_Init 0 */
+
+	/* USER CODE BEGIN I2C1_Init 1 */
+
+	/* USER CODE END I2C1_Init 1 */
+	// Configure PB8 and PB9 as alternate function pins
+	  __HAL_RCC_I2C1_CLK_ENABLE();
+	  __HAL_RCC_GPIOB_CLK_ENABLE();
+	GPIO_InitTypeDef gpio_init;
+	gpio_init.Pin = GPIO_PIN_8 | GPIO_PIN_9;
+	gpio_init.Mode = GPIO_MODE_AF_OD;
+	gpio_init.Pull = GPIO_PULLUP;
+	gpio_init.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+	gpio_init.Alternate = GPIO_AF4_I2C1;
+
+	HAL_GPIO_Init(GPIOB, &gpio_init);
+	 hi2c1.Instance = I2C1;
+	  hi2c1.Init.Timing = 0x00000E14;
+	  hi2c1.Init.OwnAddress1 = 0x00;
+	  hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+	  hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+	  hi2c1.Init.OwnAddress2 = 0;
+	  hi2c1.Init.OwnAddress2Masks = I2C_OA2_NOMASK;
+	  hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+	  hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+	  if (HAL_I2C_Init(&hi2c1) != HAL_OK)
+	  {
+	    Error_Handler();
+	  }
+	  /** Configure Analogue filter
+	  */
+	  if (HAL_I2CEx_ConfigAnalogFilter(&hi2c1, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
+	  {
+	    Error_Handler();
+	  }
+	  /** Configure Digital filter
+	  */
+	  if (HAL_I2CEx_ConfigDigitalFilter(&hi2c1, 0) != HAL_OK)
+	  {
+	    Error_Handler();
+	  }
+	  /** I2C Enable Fast Mode Plus
+	  */
+	  HAL_I2CEx_EnableFastModePlus(I2C_FASTMODEPLUS_I2C1);
+}
+
 
 /**
   * @brief LPUART1 Initialization Function
@@ -457,6 +511,13 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
+  GPIO_InitTypeDef  GPIO_InitStruct = {0};
+  GPIO_InitStruct.Pin = GPIO_PIN_0 | GPIO_PIN_1;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_1);
 
 }
 
