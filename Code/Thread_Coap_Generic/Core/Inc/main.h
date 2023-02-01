@@ -34,7 +34,13 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+typedef struct
+{
+	int32_t humidity;
+	int32_t temp_main;
+} SensorData_t;
 
+extern SensorData_t sensor_data;
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

@@ -32,6 +32,9 @@
 #include "stm32_seq.h"
 #include "dataset.h"
 #include "radio.h"
+#include "main.h"
+#include "sht4x.h"
+
 #if (CFG_USB_INTERFACE_ENABLE != 0)
 #include "vcp.h"
 #include "vcp_conf.h"
@@ -54,7 +57,7 @@
 #define C_STRING_CIRCLE         "O"
 
 /* USER CODE BEGIN PD */
-#define C_RESSOURCE             "light"
+#define C_RESSOURCE             "permissions"
 #define COAP_PAYLOAD_LENGTH 2
 #define WAIT_TIMEOUT                     (5*1000*1000/CFG_TS_TICK_VAL) /**< 5s */
 
@@ -117,7 +120,7 @@ static void APP_THREAD_CoapDataRespHandler(
     otError result);
 
 static void APP_THREAD_InitPayloadWrite(void);
-static void APP_THREAD_SendCoapMsg(void);
+static void APP_THREAD_SendCoapMsg(char *buf, bool require_ack);
 static void APP_THREAD_TimingElapsed(void);
 static bool APP_THREAD_CheckMsgValidity(void);
 /* USER CODE END PFP */
@@ -162,9 +165,13 @@ static uint8_t PayloadRead[COAP_PAYLOAD_LENGTH]= {0};
 static const uint32_t coapMessageIntervalMs = (5 * 1000 * 1000 / CFG_TS_TICK_VAL);
 static uint8_t coapMessageTimerId;
 
-
+char tmp_tx_buf[256];
 char resource_name[32];
 otIp6Address brAddr;
+
+otExtAddress eui64;
+const uint8_t device_type = 1;
+
 /* Functions Definition ------------------------------------------------------*/
 
 void APP_THREAD_Init( void )
@@ -214,9 +221,9 @@ void APP_THREAD_Init( void )
   HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_SET);
   HW_TS_Create(CFG_TIM_PROC_ID_ISR, &coapMessageTimerId, hw_ts_Repeated, APP_THREAD_SendCoapMsg);
   HW_TS_Start(coapMessageTimerId, coapMessageIntervalMs);
-  APP_THREAD_InitPayloadWrite();
+  //APP_THREAD_InitPayloadWrite();
 
-
+  otLinkGetFactoryAssignedIeeeEui64(NULL, &eui64);
   UTIL_LPM_SetStopMode(1 << CFG_LPM_APP_THREAD, UTIL_LPM_ENABLE);
 
   /* Allow the 802_15_4 IP to enter in low power mode */
@@ -313,7 +320,7 @@ void APP_THREAD_SetSleepyEndDeviceMode(void)
    * in 'sleepy end device' mode, it will send an ACK_Request every 5 sec.
    * This message will act as keep alive message.
    */
-  otLinkSetPollPeriod(NULL, 15000);
+  otLinkSetPollPeriod(NULL, 2000);
 
   /* Set the sleepy end device mode */
   OT_LinkMode.mRxOnWhenIdle = 0;
@@ -641,7 +648,12 @@ static void APP_THREAD_CoapPermissionsRequestHandler(void *pContext,
 {
 
   
-  APP_DBG(" Received CoAP request (context = %s)",pContext);
+  APP_DBG(" **********************************************************************************"
+		  "Received CoAP request**********************************************************"
+		  "****************************************************************************"
+		  "********************************************************************************"
+		  "******************************************************************************"
+		  "***********************************************************************",pContext);
   /* USER CODE BEGIN APP_THREAD_CoapRequestHandler */
   //GPIO_PinOutSet(IP_LED_PORT, IP_LED_PIN);
   //printIPv6Addr(&aMessageInfo->mPeerAddr);
@@ -772,22 +784,70 @@ static void APP_THREAD_InitPayloadWrite(void)
  * @param  None
  * @retval None
  */
-static void APP_THREAD_SendCoapMsg(void)
-{
-  APP_DBG("In appthread handler*");
+static void APP_THREAD_SendCoapMsg(char *buf, bool require_ack) {
+	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_SET);
+	int8_t rssi;
+	sht4x_measure();
+	otThreadGetParentLastRssi(NULL, &rssi);
+	/** CoAP Payload String (max <90 chars) **
+	 * device_type (uint8_t): internal use number for indicating sensor type
+	 * eui64 (uint32_t): unique id MSB
+	 * eui64 (uint32_t): unique id LSB
+	 * !radarCoapSendInactive (uint8_t): radar algo state
+	 * result.presence_score (uint32_t): radar presence score
+	 * result.presence_distance (uint32_t): radar presence distance
+	 * opt_buf (uint32_t): light levels in lux
+	 * vdd_meas (uint32_t): supply voltage in mV
+	 * rssi (int8_t): last rssi from parent
+	 * appCoapSendTxCtr (uint32_t): total CoAP transmissions
+	 */
+	snprintf(tmp_tx_buf, 254, "%d,%x%x%x%x%x%x%x%x,%ld,%ld,%d", device_type,
+			eui64.m8[0], eui64.m8[1], eui64.m8[02], eui64.m8[3], eui64.m8[4],
+			eui64.m8[5], eui64.m8[6], eui64.m8[7], sensor_data.temp_main,
+			sensor_data.humidity, rssi);
+	buf = tmp_tx_buf;
+	APP_DBG("In appthread handler*");
+	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_0);
+	otError error = OT_ERROR_NONE;
+	otMessage *message = NULL;
+	otMessageInfo messageInfo;
+	uint16_t payloadLength = 0;
 
-  /* Send a NON-CONFIRMABLE PUT Request */
-  /*
-  APP_THREAD_CoapSendRequest(&OT_Ressource,
-      OT_COAP_TYPE_NON_CONFIRMABLE,
-      OT_COAP_CODE_PUT,
-      MULICAST_FTD_MED,
-      NULL,
-      PayloadWrite,
-      sizeof(PayloadWrite),
-      NULL,
-      NULL);
-*/
+	// Default parameters
+	otCoapType coapType =
+			require_ack ?
+					OT_COAP_TYPE_CONFIRMABLE : OT_COAP_TYPE_NON_CONFIRMABLE;
+	otIp6Address coapDestinationIp = brAddr;
+	message = otCoapNewMessage(NULL, NULL);
+
+	otCoapMessageInit(message, coapType, OT_COAP_CODE_PUT);
+	otCoapMessageGenerateToken(message, OT_COAP_DEFAULT_TOKEN_LENGTH);
+	error = otCoapMessageAppendUriPathOptions(message, resource_name);
+
+	payloadLength = strlen(buf);
+
+	if (payloadLength > 0) {
+		error = otCoapMessageSetPayloadMarker(message);
+
+	}
+
+	// Embed content into message if given
+	if (payloadLength > 0) {
+		error = otMessageAppend(message, buf, payloadLength);
+	}
+
+	memset(&messageInfo, 0, sizeof(messageInfo));
+	messageInfo.mPeerAddr = coapDestinationIp;
+	messageInfo.mPeerPort = OT_DEFAULT_COAP_PORT;
+	error = otCoapSendRequestWithParameters(NULL, message, &messageInfo, NULL,
+			NULL,
+			NULL);
+
+	if ((error != OT_ERROR_NONE) && (message != NULL)) {
+		otMessageFree(message);
+	}
+	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_RESET);
+	sht4x_read(sensor_data.temp_main, sensor_data.humidity);
 }
 
 

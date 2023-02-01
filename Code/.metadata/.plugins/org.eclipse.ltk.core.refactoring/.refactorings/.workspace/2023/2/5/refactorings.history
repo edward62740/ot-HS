@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;Thread_Coap_Generic/Application/User/STM32_WPAN/App/app_thread.h&apos;" deleteContents="false" description="Delete resource &apos;Thread_Coap_Generic/Application/User/STM32_WPAN/App/app_thread.h&apos;" element1="/Thread_Coap_Generic/Application/User/STM32_WPAN/App/app_thread.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1675241961728"/>
+</session>

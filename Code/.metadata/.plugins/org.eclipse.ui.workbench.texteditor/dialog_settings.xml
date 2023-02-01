@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="CoapStart"/>
+		<item key="selection" value="HAL_GPIO_WritePin"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="HAL_GPIO_WritePin"/>
+			<item value="DEBUG"/>
+			<item value="debug"/>
+			<item value="gpio"/>
+			<item value="O_TogglePin(GPIOC, GPIO_PIN_0);"/>
+			<item value="/* USER CODE BEGIN Header */"/>
+			<item value="sensor_data"/>
+			<item value="APP_THREAD_CoapPermissionsRequestHandler"/>
 			<item value="coapstart"/>
 			<item value="otCoapStart"/>
 			<item value="coap_init"/>
@@ -15,14 +23,6 @@
 			<item value="DBG"/>
 			<item value="MX_LPUART1_UART_Init"/>
 			<item value="lp"/>
-			<item value="debug"/>
-			<item value="poll"/>
-			<item value="enterlow"/>
-			<item value="enter"/>
-			<item value="stop2"/>
-			<item value="LL_PWR_MODE_STANDBY"/>
-			<item value="c2"/>
-			<item value="LL_PWR_MODE_STOP2"/>
 		</list>
 		<list key="replacehistory">
 		</list>

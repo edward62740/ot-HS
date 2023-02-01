@@ -38,13 +38,16 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
+
 #include "main.h"
 #include "dbg_trace.h"
 #include "stm_logging.h"
 #include "sensirion_i2c.h"
 #include "sht4x.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+
 
 /* USER CODE END Includes */
 
@@ -94,7 +97,7 @@ static void MX_I2C1_Init(void);
 /* USER CODE BEGIN 0 */
 
 /* USER CODE END 0 */
-
+SensorData_t sensor_data;
 /**
   * @brief  The application entry point.
   * @retval int
@@ -124,7 +127,6 @@ int main(void)
 
   /* IPCC initialisation */
    MX_IPCC_Init();
-
   /* USER CODE BEGIN SysInit */
 
   /* USER CODE END SysInit */
@@ -134,7 +136,7 @@ int main(void)
   MX_DMA_Init();
   MX_RF_Init();
   MX_RTC_Init();
-  MX_I2C1_Init();
+  //MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
 
       /*--[ Scanning Done ]--*/
@@ -147,6 +149,8 @@ int main(void)
 
 
    sensirion_i2c_init(&hi2c1);
+   sht4x_enable_low_power_mode(1);
+   //sht4x_measure_blocking_read(sensor_data.temp_main, sensor_data.humidity);
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -154,7 +158,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     MX_APPE_Process();
-
+    //sht4x_measure_blocking_read(&sensor_data.temp_main, &sensor_data.humidity);
 
     /* USER CODE BEGIN 3 */
   }

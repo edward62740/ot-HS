@@ -34,7 +34,6 @@ extern "C" {
 #include OPENTHREAD_CONFIG_FILE
 
 /* USER CODE BEGIN Includes */
-
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
