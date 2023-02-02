@@ -18,6 +18,7 @@ RM := rm -rf
 -include Application/User/Core/subdir.mk
 -include Application/User/subdir.mk
 -include Application/Startup/subdir.mk
+-include Application/Sensors/stts22h/subdir.mk
 -include Application/Sensors/sht4x-5.3.0/subdir.mk
 -include objects.mk
 

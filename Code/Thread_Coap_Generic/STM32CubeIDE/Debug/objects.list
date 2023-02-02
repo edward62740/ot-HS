@@ -1,6 +1,7 @@
 "./Application/Sensors/sht4x-5.3.0/sensirion_common.o"
 "./Application/Sensors/sht4x-5.3.0/sensirion_hw_i2c_implementation.o"
 "./Application/Sensors/sht4x-5.3.0/sht4x.o"
+"./Application/Sensors/stts22h/stts22h_reg.o"
 "./Application/Startup/startup_stm32wb5mmghx.o"
 "./Application/User/Core/syscalls.o"
 "./Application/User/Core/sysmem.o"

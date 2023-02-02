@@ -33,8 +33,9 @@
 #include "dataset.h"
 #include "radio.h"
 #include "main.h"
+#include "sensirion_i2c.h"
 #include "sht4x.h"
-
+#include "stts22h_reg.h"
 #if (CFG_USB_INTERFACE_ENABLE != 0)
 #include "vcp.h"
 #include "vcp_conf.h"
@@ -787,8 +788,11 @@ static void APP_THREAD_InitPayloadWrite(void)
 static void APP_THREAD_SendCoapMsg(char *buf, bool require_ack) {
 	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_SET);
 	int8_t rssi;
-	sht4x_measure();
 	otThreadGetParentLastRssi(NULL, &rssi);
+	sht4x_read(&sensor_data.temp_main, &sensor_data.humidity);
+
+
+
 	/** CoAP Payload String (max <90 chars) **
 	 * device_type (uint8_t): internal use number for indicating sensor type
 	 * eui64 (uint32_t): unique id MSB
@@ -806,7 +810,7 @@ static void APP_THREAD_SendCoapMsg(char *buf, bool require_ack) {
 			eui64.m8[5], eui64.m8[6], eui64.m8[7], sensor_data.temp_main,
 			sensor_data.humidity, rssi);
 	buf = tmp_tx_buf;
-	APP_DBG("In appthread handler*");
+	APP_DBG("In appthread handler temp:%d hum:%d", sensor_data.temp_main, sensor_data.humidity);
 	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_0);
 	otError error = OT_ERROR_NONE;
 	otMessage *message = NULL;
@@ -847,7 +851,7 @@ static void APP_THREAD_SendCoapMsg(char *buf, bool require_ack) {
 		otMessageFree(message);
 	}
 	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_RESET);
-	sht4x_read(sensor_data.temp_main, sensor_data.humidity);
+	sht4x_measure();
 }
 
 

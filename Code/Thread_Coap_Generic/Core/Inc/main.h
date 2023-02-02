@@ -38,9 +38,12 @@ typedef struct
 {
 	int32_t humidity;
 	int32_t temp_main;
+	int16_t temp_aux;
 } SensorData_t;
 
 extern SensorData_t sensor_data;
+
+extern I2C_HandleTypeDef hi2c1;
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
