@@ -1,82 +1,148 @@
-17:46:08 **** Incremental Build of configuration Debug for project Thread_Coap_Generic ****
+11:33:03 **** Incremental Build of configuration Debug for project Thread_Coap_Generic ****
 make -j8 all 
-arm-none-eabi-gcc "C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER '-DOPENTHREAD_CONFIG_FILE=<openthread_api_config_ftd.h>' -DTHREAD_WB -DSTM32WB55xx -c -I../../Core/Inc -I"C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/stts22h" -I../../STM32_WPAN/App -I../../Middlewares/ST/STM32_WPAN -I../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../../Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/platform -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/third_party/mbedtls/repo/include -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/src/core -I../../Middlewares/ST/STM32_WPAN/utilities -I../../Utilities/LCD -I../../Utilities/lpm/tiny_lpm -I../../Utilities/sequencer -I../../Drivers/STM32WBxx_HAL_Driver/Inc -I../../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Include -I../../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../../Drivers/BSP/Components/Common -I../../Drivers/BSP/STM32WB5MM-DK -I"C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Application/User/main.d" -MT"Application/User/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/User/main.o"
-arm-none-eabi-gcc -o "Thread_Coap_Generic.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Workstation\Desktop\ot-HS\Code\Thread_Coap_Generic\STM32CubeIDE\STM32WB5MMGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Thread_Coap_Generic.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+arm-none-eabi-gcc "../Application/User/app_algo.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER '-DOPENTHREAD_CONFIG_FILE=<openthread_api_config_ftd.h>' -DTHREAD_WB -DSTM32WB55xx -c -I../../Core/Inc -I"C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/User" -I"C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/stts22h" -I../../STM32_WPAN/App -I../../Middlewares/ST/STM32_WPAN -I../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../../Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/platform -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/third_party/mbedtls/repo/include -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/src/core -I../../Middlewares/ST/STM32_WPAN/utilities -I../../Utilities/LCD -I../../Utilities/lpm/tiny_lpm -I../../Utilities/sequencer -I../../Drivers/STM32WBxx_HAL_Driver/Inc -I../../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Include -I../../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../../Drivers/BSP/Components/Common -I../../Drivers/BSP/STM32WB5MM-DK -I"C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Application/User/app_algo.d" -MT"Application/User/app_algo.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/User/app_algo.o"
+In file included from ../Application/User/app_algo.h:7,
+                 from ../Application/User/app_algo.c:1:
+../Application/User/app_algo.c: In function 'update_sensor_LL':
+../../Core/Inc/stm_logging.h:41:37: warning: implicit declaration of function 'DbgTraceGetFileName' [-Wimplicit-function-declaration]
+   41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
+      |                                     ^~~~~~~~~~~~~~~~~~~
+../Application/User/app_algo.c:70:2: note: in expansion of macro 'APP_DBG'
+   70 |  APP_DBG("LL  size :%d\n",ll->size);
+      |  ^~~~~~~
+../../Core/Inc/stm_logging.h:41:16: warning: format '%s' expects argument of type 'char *', but argument 2 has type 'int' [-Wformat=]
+   41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
+      |                ^~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                     |
+      |                                     int
+../Application/User/app_algo.c:70:2: note: in expansion of macro 'APP_DBG'
+   70 |  APP_DBG("LL  size :%d\n",ll->size);
+      |  ^~~~~~~
+../../Core/Inc/stm_logging.h:41:23: note: format string is defined here
+   41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
+      |                      ~^
+      |                       |
+      |                       char *
+      |                      %d
+../Application/User/app_algo.c: In function 'traverse_sensor_LL':
+../../Core/Inc/stm_logging.h:41:16: warning: format '%s' expects argument of type 'char *', but argument 2 has type 'int' [-Wformat=]
+   41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
+      |                ^~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                     |
+      |                                     int
+../Application/User/app_algo.c:88:2: note: in expansion of macro 'APP_DBG'
+   88 |  APP_DBG("LL Length:%d, size :%d\n", ctr,ll->size);
+      |  ^~~~~~~
+../../Core/Inc/stm_logging.h:41:23: note: format string is defined here
+   41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
+      |                      ~^
+      |                       |
+      |                       char *
+      |                      %d
+../Application/User/app_algo.c: In function 'app_algo_proc':
+../../Core/Inc/stm_logging.h:41:16: warning: format '%s' expects argument of type 'char *', but argument 2 has type 'int' [-Wformat=]
+   41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
+      |                ^~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                     |
+      |                                     int
+../Application/User/app_algo.c:117:3: note: in expansion of macro 'APP_DBG'
+  117 |   APP_DBG("FSM STATE INIT");
+      |   ^~~~~~~
+../../Core/Inc/stm_logging.h:41:23: note: format string is defined here
+   41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
+      |                      ~^
+      |                       |
+      |                       char *
+      |                      %d
+../../Core/Inc/stm_logging.h:41:16: warning: format '%s' expects argument of type 'char *', but argument 2 has type 'int' [-Wformat=]
+   41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
+      |                ^~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                     |
+      |                                     int
+../Application/User/app_algo.c:122:3: note: in expansion of macro 'APP_DBG'
+  122 |   APP_DBG("FSM STATE MEAS");
+      |   ^~~~~~~
+../../Core/Inc/stm_logging.h:41:23: note: format string is defined here
+   41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
+      |                      ~^
+      |                       |
+      |                       char *
+      |                      %d
+../../Core/Inc/stm_logging.h:41:16: warning: format '%s' expects argument of type 'char *', but argument 2 has type 'int' [-Wformat=]
+   41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
+      |                ^~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                     |
+      |                                     int
+../Application/User/app_algo.c:129:3: note: in expansion of macro 'APP_DBG'
+  129 |   APP_DBG("FSM STATE PRETRIG\n");
+      |   ^~~~~~~
+../../Core/Inc/stm_logging.h:41:23: note: format string is defined here
+   41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
+      |                      ~^
+      |                       |
+      |                       char *
+      |                      %d
+../../Core/Inc/stm_logging.h:41:16: warning: format '%s' expects argument of type 'char *', but argument 2 has type 'int' [-Wformat=]
+   41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
+      |                ^~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                     |
+      |                                     int
+../Application/User/app_algo.c:137:3: note: in expansion of macro 'APP_DBG'
+  137 |   APP_DBG("Pretrig ctr:%d", ct);
+      |   ^~~~~~~
+../../Core/Inc/stm_logging.h:41:23: note: format string is defined here
+   41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
+      |                      ~^
+      |                       |
+      |                       char *
+      |                      %d
+../../Core/Inc/stm_logging.h:41:16: warning: format '%s' expects argument of type 'char *', but argument 2 has type 'int' [-Wformat=]
+   41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
+      |                ^~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                     |
+      |                                     int
+../Application/User/app_algo.c:147:3: note: in expansion of macro 'APP_DBG'
+  147 |   APP_DBG("FSM STATE HEATING");
+      |   ^~~~~~~
+../../Core/Inc/stm_logging.h:41:23: note: format string is defined here
+   41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
+      |                      ~^
+      |                       |
+      |                       char *
+      |                      %d
+../../Core/Inc/stm_logging.h:41:16: warning: format '%s' expects argument of type 'char *', but argument 2 has type 'int' [-Wformat=]
+   41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
+      |                ^~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                     |
+      |                                     int
+../Application/User/app_algo.c:153:3: note: in expansion of macro 'APP_DBG'
+  153 |   APP_DBG("FSM STATE COOLDOWN");
+      |   ^~~~~~~
+../../Core/Inc/stm_logging.h:41:23: note: format string is defined here
+   41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
+      |                      ~^
+      |                       |
+      |                       char *
+      |                      %d
+At top level:
+../Application/User/app_algo.c:4:22: warning: 'HUMIDITY_TRIG_TH_NEG' defined but not used [-Wunused-const-variable=]
+    4 | static const int32_t HUMIDITY_TRIG_TH_NEG = 75000;
+      |                      ^~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "Thread_Coap_Generic.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Workstation\Desktop\ot-HS\Code\Thread_Coap_Generic\STM32CubeIDE\STM32WB5MMGHX_FLASH.ld" -Wl,-Map="Thread_Coap_Generic.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: Thread_Coap_Generic.elf
  
 arm-none-eabi-size   Thread_Coap_Generic.elf 
 arm-none-eabi-objdump -h -S  Thread_Coap_Generic.elf  > "Thread_Coap_Generic.list"
    text	   data	    bss	    dec	    hex	filename
-  62044	    165	  19818	  82027	  1406b	Thread_Coap_Generic.elf
+  63796	    165	  19850	  83811	  14763	Thread_Coap_Generic.elf
 Finished building: default.size.stdout
  
 Finished building: Thread_Coap_Generic.list
  
-17:46:27 **** Incremental Build of configuration Debug for project Thread_Coap_Generic ****
-make -j8 all 
-arm-none-eabi-gcc "C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER '-DOPENTHREAD_CONFIG_FILE=<openthread_api_config_ftd.h>' -DTHREAD_WB -DSTM32WB55xx -c -I../../Core/Inc -I"C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/stts22h" -I../../STM32_WPAN/App -I../../Middlewares/ST/STM32_WPAN -I../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../../Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/platform -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/third_party/mbedtls/repo/include -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/src/core -I../../Middlewares/ST/STM32_WPAN/utilities -I../../Utilities/LCD -I../../Utilities/lpm/tiny_lpm -I../../Utilities/sequencer -I../../Drivers/STM32WBxx_HAL_Driver/Inc -I../../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Include -I../../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../../Drivers/BSP/Components/Common -I../../Drivers/BSP/STM32WB5MM-DK -I"C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Application/User/STM32_WPAN/App/app_thread.d" -MT"Application/User/STM32_WPAN/App/app_thread.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/User/STM32_WPAN/App/app_thread.o"
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c: In function 'APP_THREAD_Init':
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:218:3: warning: implicit declaration of function 'APP_THREAD_SetSleepyEndDeviceMode' [-Wimplicit-function-declaration]
-  218 |   APP_THREAD_SetSleepyEndDeviceMode();
-      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:223:74: warning: passing argument 4 of 'HW_TS_Create' from incompatible pointer type [-Wincompatible-pointer-types]
-  223 |   HW_TS_Create(CFG_TIM_PROC_ID_ISR, &coapMessageTimerId, hw_ts_Repeated, APP_THREAD_SendCoapMsg);
-      |                                                                          ^~~~~~~~~~~~~~~~~~~~~~
-      |                                                                          |
-      |                                                                          void (*)(char *, _Bool)
-In file included from ../../Core/Inc/app_conf.h:27,
-                 from ../../Core/Inc/app_common.h:34,
-                 from C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:21:
-../../Core/Inc/hw_if.h:151:122: note: expected 'HW_TS_pTimerCb_t' {aka 'void (*)(void)'} but argument is of type 'void (*)(char *, _Bool)'
-  151 |   HW_TS_ReturnStatus_t HW_TS_Create(uint32_t TimerProcessID, uint8_t *pTimerId, HW_TS_Mode_t TimerMode, HW_TS_pTimerCb_t pTimerCallBack);
-      |                                                                                                         ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c: At top level:
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:316:6: warning: conflicting types for 'APP_THREAD_SetSleepyEndDeviceMode'
-  316 | void APP_THREAD_SetSleepyEndDeviceMode(void)
-      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:218:3: note: previous implicit declaration of 'APP_THREAD_SetSleepyEndDeviceMode' was here
-  218 |   APP_THREAD_SetSleepyEndDeviceMode();
-      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:125:13: warning: 'APP_THREAD_TimingElapsed' declared 'static' but never defined [-Wunused-function]
-  125 | static void APP_THREAD_TimingElapsed(void);
-      |             ^~~~~~~~~~~~~~~~~~~~~~~~
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:863:13: warning: 'APP_THREAD_CheckMsgValidity' defined but not used [-Wunused-function]
-  863 | static bool APP_THREAD_CheckMsgValidity(void)
-      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:774:13: warning: 'APP_THREAD_InitPayloadWrite' defined but not used [-Wunused-function]
-  774 | static void APP_THREAD_InitPayloadWrite(void)
-      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:749:13: warning: 'APP_THREAD_CoapDataRespHandler' defined but not used [-Wunused-function]
-  749 | static void APP_THREAD_CoapDataRespHandler(
-      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:711:13: warning: 'APP_THREAD_CoapSendDataResponse' defined but not used [-Wunused-function]
-  711 | static void APP_THREAD_CoapSendDataResponse(otMessage  * pMessage,
-      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:549:13: warning: 'APP_THREAD_CoapSendRequest' defined but not used [-Wunused-function]
-  549 | static void APP_THREAD_CoapSendRequest(otCoapResource* aCoapRessource,
-      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~
-arm-none-eabi-gcc -o "Thread_Coap_Generic.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Workstation\Desktop\ot-HS\Code\Thread_Coap_Generic\STM32CubeIDE\STM32WB5MMGHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Thread_Coap_Generic.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Thread_Coap_Generic.elf
- 
-arm-none-eabi-size   Thread_Coap_Generic.elf 
-arm-none-eabi-objdump -h -S  Thread_Coap_Generic.elf  > "Thread_Coap_Generic.list"
-   text	   data	    bss	    dec	    hex	filename
-  61788	    165	  19818	  81771	  13f6b	Thread_Coap_Generic.elf
-Finished building: default.size.stdout
- 
-Finished building: Thread_Coap_Generic.list
- 
-17:46:33 **** Incremental Build of configuration Debug for project Thread_Coap_Generic ****
+11:33:09 **** Incremental Build of configuration Debug for project Thread_Coap_Generic ****
 make -j8 all 
 arm-none-eabi-size   Thread_Coap_Generic.elf 
    text	   data	    bss	    dec	    hex	filename
-  61788	    165	  19818	  81771	  13f6b	Thread_Coap_Generic.elf
-Finished building: default.size.stdout
- 
-17:51:39 **** Incremental Build of configuration Debug for project Thread_Coap_Generic ****
-make -j8 all 
-arm-none-eabi-size   Thread_Coap_Generic.elf 
-   text	   data	    bss	    dec	    hex	filename
-  61788	    165	  19818	  81771	  13f6b	Thread_Coap_Generic.elf
+  63796	    165	  19850	  83811	  14763	Thread_Coap_Generic.elf
 Finished building: default.size.stdout
  

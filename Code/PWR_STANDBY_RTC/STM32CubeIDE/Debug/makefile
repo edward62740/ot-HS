@@ -14,6 +14,18 @@ RM := rm -rf
 -include Drivers/BSP/P-NUCLEO-WB55.Nucleo/subdir.mk
 -include Application/User/subdir.mk
 -include Application/Startup/subdir.mk
+-include Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/linux_user_space/subdir.mk
+-include Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/STM32F1_series/subdir.mk
+-include Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/Nordic_nRF5_series/subdir.mk
+-include Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/Atmel_SAMD2_series/subdir.mk
+-include Application/Sensors/sht4x-5.3.0/sw_i2c/subdir.mk
+-include Application/Sensors/sht4x-5.3.0/hw_i2c/sample-implementations/zephyr_user_space/subdir.mk
+-include Application/Sensors/sht4x-5.3.0/hw_i2c/sample-implementations/linux_user_space/subdir.mk
+-include Application/Sensors/sht4x-5.3.0/hw_i2c/sample-implementations/STM32F1_series/subdir.mk
+-include Application/Sensors/sht4x-5.3.0/hw_i2c/sample-implementations/Nordic_nRF5_series/subdir.mk
+-include Application/Sensors/sht4x-5.3.0/hw_i2c/sample-implementations/Atmel_SAMD2_series/subdir.mk
+-include Application/Sensors/sht4x-5.3.0/hw_i2c/subdir.mk
+-include Application/Sensors/sht4x-5.3.0/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)

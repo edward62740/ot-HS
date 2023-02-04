@@ -1,0 +1,11 @@
+#ifndef APP_ALGO_HPP
+#define APP_ALGO_HPP
+
+
+
+void init();
+
+
+
+
+#endif //APP_ALGO_HPP

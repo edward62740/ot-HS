@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="sht4"/>
+		<item key="selection" value="ll-&gt;size"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="ll-&gt;size"/>
+			<item value="app_dbg"/>
+			<item value="SHT4X_CMD_MEASURE_LPM"/>
+			<item value="heat"/>
+			<item value="ctx"/>
+			<item value="stts"/>
+			<item value="APP_THREAD_SendCoapMsg"/>
 			<item value="sht4"/>
+			<item value="coap"/>
+			<item value="init"/>
+			<item value="bool"/>
 			<item value="read_reg"/>
 			<item value="stmdev_read_ptr"/>
 			<item value="STTS22H_I2C_ADD_H"/>
 			<item value="stts22h_write_reg(ctx, "/>
-			<item value="stts22h_read_reg(ctx, "/>
-			<item value="stmdev_ctx_t *ctx,"/>
-			<item value="platform"/>
-			<item value="HAL_GPIO_WritePin"/>
-			<item value="DEBUG"/>
-			<item value="debug"/>
-			<item value="gpio"/>
-			<item value="O_TogglePin(GPIOC, GPIO_PIN_0);"/>
-			<item value="/* USER CODE BEGIN Header */"/>
-			<item value="sensor_data"/>
 		</list>
 		<list key="replacehistory">
 			<item value="stts22h_write_reg("/>

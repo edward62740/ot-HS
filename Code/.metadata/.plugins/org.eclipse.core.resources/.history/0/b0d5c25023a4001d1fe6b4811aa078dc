@@ -1,0 +1,12 @@
+#ifndef APP_ALGO_H
+#define APP_ALGO_H
+
+#include "app_common.h"
+
+void app_algo_init();
+SensorQueueLL *create_sensor_LL(void)
+void update_sensor_LL(SensorQueueLL *ll, SensorData_t dat)
+uint8_t traverse_sensor_LL(SensorQueueLL *ll, bool isHum, int32_t l_th, int32_t u_th, int32_t *avg_temp, int32_t *avg_hum);
+eResFsm app_algo_proc(SensorData_t data, bool ext_sig_reset)
+
+#endif //APP_ALGO_H

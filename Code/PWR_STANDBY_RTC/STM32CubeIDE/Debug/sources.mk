@@ -21,6 +21,18 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+Application/Sensors/sht4x-5.3.0/hw_i2c/sample-implementations/Atmel_SAMD2_series \
+Application/Sensors/sht4x-5.3.0/hw_i2c/sample-implementations/Nordic_nRF5_series \
+Application/Sensors/sht4x-5.3.0/hw_i2c/sample-implementations/STM32F1_series \
+Application/Sensors/sht4x-5.3.0/hw_i2c/sample-implementations/linux_user_space \
+Application/Sensors/sht4x-5.3.0/hw_i2c/sample-implementations/zephyr_user_space \
+Application/Sensors/sht4x-5.3.0/hw_i2c \
+Application/Sensors/sht4x-5.3.0 \
+Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/Atmel_SAMD2_series \
+Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/Nordic_nRF5_series \
+Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/STM32F1_series \
+Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/linux_user_space \
+Application/Sensors/sht4x-5.3.0/sw_i2c \
 Application/Startup \
 Application/User \
 Drivers/BSP/P-NUCLEO-WB55.Nucleo \

@@ -19,14 +19,14 @@
 
 #include "stts22h_reg.h"
 #include <stm32wbxx_hal.h>
-
+stmdev_ctx_t dev_ctx;
 stmdev_ctx_t *ctx;
 
 bool platform_stts22h_init(I2C_HandleTypeDef* i2c_handle)
 {
 	  static uint8_t whoamI;
 	  /* Initialize mems driver interface */
-	  stmdev_ctx_t dev_ctx;
+
 	  dev_ctx.write_reg = platform_write;
 	  dev_ctx.read_reg = platform_read;
 	  dev_ctx.handle = &i2c_handle;
@@ -44,6 +44,12 @@ int32_t platform_write(void *handle, uint8_t Reg, const uint8_t *Bufp, uint16_t 
 
 int32_t platform_read(void *handle, uint8_t Reg, const uint8_t *Bufp, uint16_t len) {
 	return (int8_t)HAL_I2C_Master_Transmit(handle, (uint16_t)(Reg<<1), (uint8_t*)Bufp, len,5);
+}
+
+
+static void platform_delay(uint32_t ms)
+{
+	HAL_Delay(ms);
 }
 
 /**

@@ -1,0 +1,13 @@
+#ifndef APP_ALGO_HPP
+#define APP_ALGO_HPP
+
+
+namespace FSM {
+
+
+
+
+
+}
+
+#endif //APP_ALGO_HPP

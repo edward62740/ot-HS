@@ -19,12 +19,9 @@
 /* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __MAIN_H
-#define __MAIN_H
+#ifndef __MAIN_HPP
+#define __MAIN_HPP
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32wbxx_hal.h"
@@ -75,8 +72,5 @@ void   MX_USART1_UART_Init(void);
 
 /* USER CODE END Private defines */
 
-#ifdef __cplusplus
-}
-#endif
 
-#endif /* __MAIN_H */
+#endif /* __MAIN_HPP */

@@ -36,6 +36,7 @@
 #include "sensirion_i2c.h"
 #include "sht4x.h"
 #include "stts22h_reg.h"
+#include "app_algo.h"
 #if (CFG_USB_INTERFACE_ENABLE != 0)
 #include "vcp.h"
 #include "vcp_conf.h"
@@ -788,11 +789,15 @@ static void APP_THREAD_InitPayloadWrite(void)
 static void APP_THREAD_SendCoapMsg(char *buf, bool require_ack) {
 	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_SET);
 	int8_t rssi;
+	int16_t tmp_aux;
 	otThreadGetParentLastRssi(NULL, &rssi);
 	sht4x_read(&sensor_data.temp_main, &sensor_data.humidity);
-
-
-
+	stts22h_temperature_raw_get(&tmp_aux);
+	sensor_data.temp_aux = tmp_aux;
+	int8_t ret = app_algo_proc(sensor_data, false);
+	if(ret == RES_HEAT) {APP_DBG("Heating");}
+	else if(ret == RES_NONE) {APP_DBG("Fsm normal");}
+	else {APP_DBG("Fsm abnormal");}
 	/** CoAP Payload String (max <90 chars) **
 	 * device_type (uint8_t): internal use number for indicating sensor type
 	 * eui64 (uint32_t): unique id MSB
@@ -810,7 +815,7 @@ static void APP_THREAD_SendCoapMsg(char *buf, bool require_ack) {
 			eui64.m8[5], eui64.m8[6], eui64.m8[7], sensor_data.temp_main,
 			sensor_data.humidity, rssi);
 	buf = tmp_tx_buf;
-	APP_DBG("In appthread handler temp:%d hum:%d", sensor_data.temp_main, sensor_data.humidity);
+	APP_DBG("In appthread handler temp:%d hum:%d temp_aux:%d", sensor_data.temp_main, sensor_data.humidity, sensor_data.temp_aux);
 	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_0);
 	otError error = OT_ERROR_NONE;
 	otMessage *message = NULL;

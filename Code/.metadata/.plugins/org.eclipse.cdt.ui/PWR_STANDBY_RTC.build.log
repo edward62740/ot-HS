@@ -1,10 +1,55 @@
-10:54:54 **** Build of configuration Debug for project PWR_STANDBY_RTC ****
+09:54:08 **** Build of configuration Debug for project PWR_STANDBY_RTC ****
 make -j8 all 
-arm-none-eabi-size   PWR_STANDBY_RTC.elf 
-   text	   data	    bss	    dec	    hex	filename
-  12108	     32	   1608	  13748	   35b4	PWR_STANDBY_RTC.elf
-Finished building: default.size.stdout
- 
+arm-none-eabi-gcc "../Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/linux_user_space/sensirion_sw_i2c_implementation.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32WB55xx -c -I../../Drivers/BSP/P-NUCLEO-WB55.Nucleo -I../../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../../Drivers/STM32WBxx_HAL_Driver/Inc -I../../Inc -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/linux_user_space/sensirion_sw_i2c_implementation.d" -MT"Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/linux_user_space/sensirion_sw_i2c_implementation.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/linux_user_space/sensirion_sw_i2c_implementation.o"
+arm-none-eabi-gcc "../Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/STM32F1_series/sensirion_sw_i2c_implementation.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32WB55xx -c -I../../Drivers/BSP/P-NUCLEO-WB55.Nucleo -I../../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../../Drivers/STM32WBxx_HAL_Driver/Inc -I../../Inc -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/STM32F1_series/sensirion_sw_i2c_implementation.d" -MT"Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/STM32F1_series/sensirion_sw_i2c_implementation.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/STM32F1_series/sensirion_sw_i2c_implementation.o"
+arm-none-eabi-gcc "../Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/Nordic_nRF5_series/sensirion_sw_i2c_implementation.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32WB55xx -c -I../../Drivers/BSP/P-NUCLEO-WB55.Nucleo -I../../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../../Drivers/STM32WBxx_HAL_Driver/Inc -I../../Inc -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/Nordic_nRF5_series/sensirion_sw_i2c_implementation.d" -MT"Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/Nordic_nRF5_series/sensirion_sw_i2c_implementation.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/Nordic_nRF5_series/sensirion_sw_i2c_implementation.o"
+arm-none-eabi-gcc "../Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/Atmel_SAMD2_series/sensirion_sw_i2c_implementation.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32WB55xx -c -I../../Drivers/BSP/P-NUCLEO-WB55.Nucleo -I../../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../../Drivers/STM32WBxx_HAL_Driver/Inc -I../../Inc -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/Atmel_SAMD2_series/sensirion_sw_i2c_implementation.d" -MT"Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/Atmel_SAMD2_series/sensirion_sw_i2c_implementation.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/Atmel_SAMD2_series/sensirion_sw_i2c_implementation.o"
+arm-none-eabi-gcc "../Application/Sensors/sht4x-5.3.0/sw_i2c/sensirion_sw_i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32WB55xx -c -I../../Drivers/BSP/P-NUCLEO-WB55.Nucleo -I../../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../../Drivers/STM32WBxx_HAL_Driver/Inc -I../../Inc -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Application/Sensors/sht4x-5.3.0/sw_i2c/sensirion_sw_i2c.d" -MT"Application/Sensors/sht4x-5.3.0/sw_i2c/sensirion_sw_i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/Sensors/sht4x-5.3.0/sw_i2c/sensirion_sw_i2c.o"
+arm-none-eabi-gcc "../Application/Sensors/sht4x-5.3.0/sw_i2c/sensirion_sw_i2c_implementation.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32WB55xx -c -I../../Drivers/BSP/P-NUCLEO-WB55.Nucleo -I../../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../../Drivers/STM32WBxx_HAL_Driver/Inc -I../../Inc -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Application/Sensors/sht4x-5.3.0/sw_i2c/sensirion_sw_i2c_implementation.d" -MT"Application/Sensors/sht4x-5.3.0/sw_i2c/sensirion_sw_i2c_implementation.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/Sensors/sht4x-5.3.0/sw_i2c/sensirion_sw_i2c_implementation.o"
+arm-none-eabi-gcc "../Application/Sensors/sht4x-5.3.0/hw_i2c/sample-implementations/zephyr_user_space/sensirion_hw_i2c_implementation.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32WB55xx -c -I../../Drivers/BSP/P-NUCLEO-WB55.Nucleo -I../../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../../Drivers/STM32WBxx_HAL_Driver/Inc -I../../Inc -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Application/Sensors/sht4x-5.3.0/hw_i2c/sample-implementations/zephyr_user_space/sensirion_hw_i2c_implementation.d" -MT"Application/Sensors/sht4x-5.3.0/hw_i2c/sample-implementations/zephyr_user_space/sensirion_hw_i2c_implementation.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/Sensors/sht4x-5.3.0/hw_i2c/sample-implementations/zephyr_user_space/sensirion_hw_i2c_implementation.o"
+arm-none-eabi-gcc "../Application/Sensors/sht4x-5.3.0/hw_i2c/sample-implementations/linux_user_space/sensirion_hw_i2c_implementation.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32WB55xx -c -I../../Drivers/BSP/P-NUCLEO-WB55.Nucleo -I../../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../../Drivers/STM32WBxx_HAL_Driver/Inc -I../../Inc -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Application/Sensors/sht4x-5.3.0/hw_i2c/sample-implementations/linux_user_space/sensirion_hw_i2c_implementation.d" -MT"Application/Sensors/sht4x-5.3.0/hw_i2c/sample-implementations/linux_user_space/sensirion_hw_i2c_implementation.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/Sensors/sht4x-5.3.0/hw_i2c/sample-implementations/linux_user_space/sensirion_hw_i2c_implementation.o"
+../Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/Nordic_nRF5_series/sensirion_sw_i2c_implementation.c:32:10: fatal error: sensirion_arch_config.h: No such file or directory
+   32 | #include "sensirion_arch_config.h"
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+../Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/Atmel_SAMD2_series/sensirion_sw_i2c_implementation.c:32:10: fatal error: sensirion_arch_config.h: No such file or directory
+   32 | #include "sensirion_arch_config.h"
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+../Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/STM32F1_series/sensirion_sw_i2c_implementation.c:33:10: fatal error: stm32f1xx_hal.h: No such file or directory
+   33 | #include <stm32f1xx_hal.h>
+      |          ^~~~~~~~~~~~~~~~~
+compilation terminated.
+../Application/Sensors/sht4x-5.3.0/sw_i2c/sensirion_sw_i2c.c:32:10: fatal error: sensirion_arch_config.h: No such file or directory
+   32 | #include "sensirion_arch_config.h"
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/Atmel_SAMD2_series/subdir.mk:19: Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/Atmel_SAMD2_series/sensirion_sw_i2c_implementation.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/Nordic_nRF5_series/subdir.mk:19: Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/Nordic_nRF5_series/sensirion_sw_i2c_implementation.o] Error 1
+make: *** [Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/STM32F1_series/subdir.mk:19: Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/STM32F1_series/sensirion_sw_i2c_implementation.o] Error 1
+make: *** [Application/Sensors/sht4x-5.3.0/sw_i2c/subdir.mk:22: Application/Sensors/sht4x-5.3.0/sw_i2c/sensirion_sw_i2c.o] Error 1
+../Application/Sensors/sht4x-5.3.0/sw_i2c/sensirion_sw_i2c_implementation.c:32:10: fatal error: sensirion_arch_config.h: No such file or directory
+   32 | #include "sensirion_arch_config.h"
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+../Application/Sensors/sht4x-5.3.0/hw_i2c/sample-implementations/linux_user_space/sensirion_hw_i2c_implementation.c:32:10: fatal error: sensirion_arch_config.h: No such file or directory
+   32 | #include "sensirion_arch_config.h"
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [Application/Sensors/sht4x-5.3.0/sw_i2c/subdir.mk:22: Application/Sensors/sht4x-5.3.0/sw_i2c/sensirion_sw_i2c_implementation.o] Error 1
+../Application/Sensors/sht4x-5.3.0/hw_i2c/sample-implementations/zephyr_user_space/sensirion_hw_i2c_implementation.c:32:10: fatal error: device.h: No such file or directory
+   32 | #include <device.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+make: *** [Application/Sensors/sht4x-5.3.0/hw_i2c/sample-implementations/linux_user_space/subdir.mk:19: Application/Sensors/sht4x-5.3.0/hw_i2c/sample-implementations/linux_user_space/sensirion_hw_i2c_implementation.o] Error 1
+make: *** [Application/Sensors/sht4x-5.3.0/hw_i2c/sample-implementations/zephyr_user_space/subdir.mk:19: Application/Sensors/sht4x-5.3.0/hw_i2c/sample-implementations/zephyr_user_space/sensirion_hw_i2c_implementation.o] Error 1
+../Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/linux_user_space/sensirion_sw_i2c_implementation.c:39:10: fatal error: sensirion_arch_config.h: No such file or directory
+   39 | #include "sensirion_arch_config.h"
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/linux_user_space/subdir.mk:19: Application/Sensors/sht4x-5.3.0/sw_i2c/sample-implementations/linux_user_space/sensirion_sw_i2c_implementation.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
 
-10:54:54 Build Finished. 0 errors, 0 warnings. (took 292ms)
+09:54:08 Build Failed. 17 errors, 0 warnings. (took 488ms)
 

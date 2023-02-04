@@ -7,6 +7,7 @@
 "./Application/User/Core/sysmem.o"
 "./Application/User/STM32_WPAN/App/app_thread.o"
 "./Application/User/STM32_WPAN/Target/hw_ipcc.o"
+"./Application/User/app_algo.o"
 "./Application/User/app_entry.o"
 "./Application/User/hw_timerserver.o"
 "./Application/User/hw_uart.o"
