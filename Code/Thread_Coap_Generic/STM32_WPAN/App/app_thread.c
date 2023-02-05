@@ -32,11 +32,9 @@
 #include "stm32_seq.h"
 #include "dataset.h"
 #include "radio.h"
-#include "main.h"
-#include "sensirion_i2c.h"
+#include "app_algo.h"
 #include "sht4x.h"
 #include "stts22h_reg.h"
-#include "app_algo.h"
 #if (CFG_USB_INTERFACE_ENABLE != 0)
 #include "vcp.h"
 #include "vcp_conf.h"
@@ -54,8 +52,8 @@
 
 /* Private defines -----------------------------------------------------------*/
 #define C_SIZE_CMD_STRING       256U
-#define C_PANID                 0x1111U
-#define C_CHANNEL_NB            14U
+#define C_PANID                 <redacted>U
+#define C_CHANNEL_NB            15U
 #define C_STRING_CIRCLE         "O"
 
 /* USER CODE BEGIN PD */
@@ -173,6 +171,7 @@ otIp6Address brAddr;
 
 otExtAddress eui64;
 const uint8_t device_type = 1;
+bool coapConnectionEstablished = false;
 
 /* Functions Definition ------------------------------------------------------*/
 
@@ -220,12 +219,11 @@ void APP_THREAD_Init( void )
   /* Initialize and configure the Thread device*/
   APP_THREAD_DeviceConfig();
 
-  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_SET);
+
   HW_TS_Create(CFG_TIM_PROC_ID_ISR, &coapMessageTimerId, hw_ts_Repeated, APP_THREAD_SendCoapMsg);
   HW_TS_Start(coapMessageTimerId, coapMessageIntervalMs);
-  //APP_THREAD_InitPayloadWrite();
-
-  otLinkGetFactoryAssignedIeeeEui64(NULL, &eui64);
+  APP_THREAD_InitPayloadWrite();
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_SET);
   UTIL_LPM_SetStopMode(1 << CFG_LPM_APP_THREAD, UTIL_LPM_ENABLE);
 
   /* Allow the 802_15_4 IP to enter in low power mode */
@@ -322,7 +320,7 @@ void APP_THREAD_SetSleepyEndDeviceMode(void)
    * in 'sleepy end device' mode, it will send an ACK_Request every 5 sec.
    * This message will act as keep alive message.
    */
-  otLinkSetPollPeriod(NULL, 2000);
+  otLinkSetPollPeriod(NULL, 5000);
 
   /* Set the sleepy end device mode */
   OT_LinkMode.mRxOnWhenIdle = 0;
@@ -367,6 +365,7 @@ void APP_THREAD_SetSleepyEndDeviceMode(void)
  */
 static void APP_THREAD_DeviceConfig(void)
 {
+	otPlatRadioSetTransmitPower(NULL, 6);
   otError error;
   otNetworkKey networkKey = {{***REMOVED***
           0xca, 0x86, 0x85, 0xab, 0x99, 0xda, 0xc9, 0x51}};
@@ -393,6 +392,9 @@ static void APP_THREAD_DeviceConfig(void)
   {
     APP_THREAD_Error(ERR_THREAD_SET_PANID,error);
   }
+  uint8_t extPanId[16] = {<redacted>};
+  error = otThreadSetExtendedPanId(NULL, &extPanId);
+  error = otThreadSetNetworkName(NULL, "<redacted>");
   error = otThreadSetNetworkKey(NULL, &networkKey);
   if (error != OT_ERROR_NONE)
   {
@@ -644,12 +646,15 @@ static void APP_THREAD_CoapSendRequest(otCoapResource* aCoapRessource,
  * @param pMessageInfo : Message information
  * @retval None
  */
+
+
 static void APP_THREAD_CoapPermissionsRequestHandler(void *pContext,
 		otMessage *pMessage, const otMessageInfo *pMessageInfo)
 
 {
-
-  
+	coapConnectionEstablished = true;
+	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_SET);
+	  coapConnectionEstablished = true;
   APP_DBG(" **********************************************************************************"
 		  "Received CoAP request**********************************************************"
 		  "****************************************************************************"
@@ -676,7 +681,7 @@ static void APP_THREAD_CoapPermissionsRequestHandler(void *pContext,
 
   uint16_t offset = otMessageGetOffset(pMessage);
   otMessageRead(pMessage, offset, resource_name, sizeof(resource_name)-1);
-  //otCliOutputFormat("Unique resource ID: %s\n", resource_name);
+
 
   if (OT_COAP_CODE_GET == messageCode)
   {
@@ -787,17 +792,18 @@ static void APP_THREAD_InitPayloadWrite(void)
  * @retval None
  */
 static void APP_THREAD_SendCoapMsg(char *buf, bool require_ack) {
+
 	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_SET);
 	int8_t rssi;
 	int16_t tmp_aux;
-	otThreadGetParentLastRssi(NULL, &rssi);
+	//otThreadGetParentLastRssi(NULL, &rssi);
 	sht4x_read(&sensor_data.temp_main, &sensor_data.humidity);
 	stts22h_temperature_raw_get(&tmp_aux);
 	sensor_data.temp_aux = tmp_aux;
-	int8_t ret = app_algo_proc(sensor_data, false);
-	if(ret == RES_HEAT) {APP_DBG("Heating");}
-	else if(ret == RES_NONE) {APP_DBG("Fsm normal");}
-	else {APP_DBG("Fsm abnormal");}
+	int8_t state;
+	int8_t ret = app_algo_proc(sensor_data, false, &state);
+	if(ret == RES_HEAT) sht4x_activate_medium_heater();
+	//if(ret == RES_HEAT)  sht4x_activate_medium_heater();
 	/** CoAP Payload String (max <90 chars) **
 	 * device_type (uint8_t): internal use number for indicating sensor type
 	 * eui64 (uint32_t): unique id MSB
@@ -810,10 +816,10 @@ static void APP_THREAD_SendCoapMsg(char *buf, bool require_ack) {
 	 * rssi (int8_t): last rssi from parent
 	 * appCoapSendTxCtr (uint32_t): total CoAP transmissions
 	 */
-	snprintf(tmp_tx_buf, 254, "%d,%x%x%x%x%x%x%x%x,%ld,%ld,%d", device_type,
+	snprintf(tmp_tx_buf, 254, "%d,%x%x%x%x%x%x%x%x,%ld,%ld,%d,%d,%d,%d", device_type,
 			eui64.m8[0], eui64.m8[1], eui64.m8[02], eui64.m8[3], eui64.m8[4],
 			eui64.m8[5], eui64.m8[6], eui64.m8[7], sensor_data.temp_main,
-			sensor_data.humidity, rssi);
+			sensor_data.humidity, sensor_data.temp_aux, ret, rssi,state);
 	buf = tmp_tx_buf;
 	APP_DBG("In appthread handler temp:%d hum:%d temp_aux:%d", sensor_data.temp_main, sensor_data.humidity, sensor_data.temp_aux);
 	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_0);
@@ -848,16 +854,20 @@ static void APP_THREAD_SendCoapMsg(char *buf, bool require_ack) {
 	memset(&messageInfo, 0, sizeof(messageInfo));
 	messageInfo.mPeerAddr = coapDestinationIp;
 	messageInfo.mPeerPort = OT_DEFAULT_COAP_PORT;
-	error = otCoapSendRequestWithParameters(NULL, message, &messageInfo, NULL,
-			NULL,
-			NULL);
+	if(coapConnectionEstablished) {
+		error = otCoapSendRequestWithParameters(NULL, message, &messageInfo, NULL,
+				NULL,
+				NULL);
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_RESET);
+	}
+
 
 	if ((error != OT_ERROR_NONE) && (message != NULL)) {
 		otMessageFree(message);
 	}
-	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_RESET);
 	sht4x_measure();
 }
+
 
 
 /**
@@ -1272,7 +1282,3 @@ void VCP_DataReceived(uint8_t* Buf , uint32_t *Len)
   }
 }
 #endif /* (CFG_USB_INTERFACE_ENABLE != 0) */
-
-/* USER CODE BEGIN FD_WRAP_FUNCTIONS */
-
-/* USER CODE END FD_WRAP_FUNCTIONS */

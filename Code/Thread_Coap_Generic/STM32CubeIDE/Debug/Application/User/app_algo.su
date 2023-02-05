@@ -1,5 +1,5 @@
-../Application/User/app_algo.c:39:16:create_sensor_LL	8	static
-../Application/User/app_algo.c:44:6:update_sensor_LL	32	static,ignoring_inline_asm
-../Application/User/app_algo.c:73:9:traverse_sensor_LL	40	static
-../Application/User/app_algo.c:94:6:app_algo_init	24	static
-../Application/User/app_algo.c:102:9:app_algo_proc	56	static
+../Application/User/app_algo.c:39:16:create_sensor_LL	16	static
+../Application/User/app_algo.c:48:6:update_sensor_LL	32	static
+../Application/User/app_algo.c:76:9:traverse_sensor_LL	40	static
+../Application/User/app_algo.c:96:6:app_algo_init	24	static
+../Application/User/app_algo.c:104:9:app_algo_proc	40	static

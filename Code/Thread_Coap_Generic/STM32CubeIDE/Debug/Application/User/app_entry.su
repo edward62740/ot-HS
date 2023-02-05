@@ -1,8 +1,9 @@
 ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_pwr.h:1663:22:LL_C2_PWR_SetPowerMode	16	static
 ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_exti.h:391:22:LL_EXTI_EnableIT_32_63	16	static
-../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_exti.h:417:22:LL_C2_EXTI_EnableIT_32_63	16	static
 ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_rcc.h:1359:22:LL_RCC_HSE_SetCapacitorTuning	16	static
 ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_rcc.h:2349:22:LL_RCC_SetClkAfterWakeFromStop	16	static
+../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h:539:22:LL_AHB2_GRP1_EnableClock	24	static
+../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h:597:22:LL_AHB2_GRP1_DisableClock	16	static
 ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_cortex.h:311:22:LL_LPM_EnableSleep	4	static
 ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_rtc.h:1031:22:LL_RTC_EnableWriteProtection	16	static
 ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_rtc.h:1042:22:LL_RTC_DisableWriteProtection	16	static
@@ -11,7 +12,7 @@ C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/app_entry.c
 C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/app_entry.c:128:6:MX_APPE_Init	8	static
 C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/app_entry.c:158:6:Init_Smps	4	static
 C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/app_entry.c:176:6:Init_Exti	8	static
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/app_entry.c:193:13:Init_Debug	8	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/app_entry.c:193:13:Init_Debug	32	static
 C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/app_entry.c:234:13:Reset_Device	4	static
 C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/app_entry.c:303:13:Config_HSE	16	static
 C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/app_entry.c:319:13:System_Init	8	static
@@ -25,12 +26,10 @@ C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/app_entry.c
 C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/app_entry.c:469:13:Button_Init	4	static
 C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/app_entry.c:487:6:HAL_Delay	24	static,ignoring_inline_asm
 C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/app_entry.c:516:6:MX_APPE_Process	8	static
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/app_entry.c:527:6:UTIL_SEQ_Idle	4	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/app_entry.c:527:6:UTIL_SEQ_Idle	8	static
 C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/app_entry.c:542:6:UTIL_SEQ_EvtIdle	16	static
 C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/app_entry.c:570:6:shci_notify_asynch_evt	16	static
 C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/app_entry.c:577:6:shci_cmd_resp_release	16	static
 C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/app_entry.c:584:6:shci_cmd_resp_wait	16	static
 C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/app_entry.c:592:6:TL_TRACES_EvtReceived	16	static
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/app_entry.c:609:6:DbgOutputInit	8	static
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/app_entry.c:624:6:DbgOutputTraces	24	static
 C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/app_entry.c:638:6:HAL_GPIO_EXTI_Callback	16	static

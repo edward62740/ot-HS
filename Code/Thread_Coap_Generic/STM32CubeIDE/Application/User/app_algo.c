@@ -1,6 +1,6 @@
 #include "app_algo.h"
 
-static const int32_t HUMIDITY_TRIG_TH_POS = 74000;
+static const int32_t HUMIDITY_TRIG_TH_POS = 80000;
 static const int32_t HUMIDITY_TRIG_TH_NEG = 75000;
 static const uint8_t HUMIDITY_SAMPLES_TRIG_TH = 5;
 static const int32_t TEMPERATURE_COOLDOWN_MAX_ALLOWED_DELTA = 2000;
@@ -38,15 +38,19 @@ struct
 
 SensorQueueLL* create_sensor_LL(void)
 {
-	return calloc(1, sizeof(SensorQueueLL));
+	SensorQueueLL *ret = malloc(sizeof(SensorQueueLL));
+	ret->front = NULL;
+	ret->rear = NULL;
+	ret->size = 0;
+	return ret;
 }
 
 void update_sensor_LL(SensorQueueLL *ll, SensorData_t dat)
 {
-	 __disable_irq( );
-	SensorDataNode *new = calloc(1, sizeof(SensorQueueLL));
+	SensorDataNode *new = malloc(sizeof(SensorDataNode));
 	if(new == NULL) return;
 	new->data = dat;
+	new->next = NULL;
 	if (ll->size == 0)
 	{
 		ll->front = new;
@@ -66,7 +70,6 @@ void update_sensor_LL(SensorQueueLL *ll, SensorData_t dat)
 		ll->rear = new;
 		ll->size++;
 	}
-	__enable_irq();
 	APP_DBG("LL  size :%d\n",ll->size);
 }
 
@@ -74,20 +77,19 @@ uint8_t traverse_sensor_LL(SensorQueueLL *ll, bool isHum, int32_t l_th, int32_t 
 {
 	SensorDataNode *cur = ll->front;
 	uint8_t ret = 0, ctr = 0;
-	while (cur)
+	while (cur != NULL)
 	{
 		if (isHum && (cur->data.humidity < l_th || cur->data.humidity > u_th))
 			ret++;
 		else if (!isHum && (cur->data.temp_main < l_th || cur->data.temp_main > u_th))
 			ret++;
+
+
 		cur = cur->next;
-		(*avg_temp) += cur->data.temp_main;
-		(*avg_hum) += cur->data.humidity;
 		ctr++;
 	}
 	APP_DBG("LL Length:%d, size :%d\n", ctr,ll->size);
-	(*avg_temp) /= ctr==0?1:ctr;
-	(*avg_hum) /= ctr==0?1:ctr;
+
 	return ret;
 }
 
@@ -99,10 +101,10 @@ void app_algo_init(SensorData_t data)
 	fsm.baseline_temp_delta = data.temp_main - (int32_t)data.temp_aux;
 }
 
-eResFsm app_algo_proc(SensorData_t data, bool ext_sig_reset)
+eResFsm app_algo_proc(SensorData_t data, bool ext_sig_reset, int8_t *state)
 {
 	update_sensor_LL(fsm.data_hist, data);
-
+	*state = fsm.cur_state;
 	if (ext_sig_reset)
 	{
 		fsm.cur_state = STATE_INIT;
@@ -133,7 +135,8 @@ eResFsm app_algo_proc(SensorData_t data, bool ext_sig_reset)
 			return RES_NONE;
 		}
 		int32_t t, h;
-		uint8_t ct = traverse_sensor_LL(fsm.data_hist, true, -1, HUMIDITY_TRIG_TH_POS, &t, &h);
+		//uint8_t ct = traverse_sensor_LL(fsm.data_hist, true, -1, HUMIDITY_TRIG_TH_POS, &t, &h);
+		uint8_t ct = 5;
 		APP_DBG("Pretrig ctr:%d", ct);
 		if (ct >= HUMIDITY_SAMPLES_TRIG_TH)
 		{

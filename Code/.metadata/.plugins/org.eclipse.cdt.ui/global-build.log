@@ -1,4 +1,4 @@
-11:33:03 **** Incremental Build of configuration Debug for project Thread_Coap_Generic ****
+17:43:27 **** Incremental Build of configuration Debug for project Thread_Coap_Generic ****
 make -j8 all 
 arm-none-eabi-gcc "../Application/User/app_algo.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER '-DOPENTHREAD_CONFIG_FILE=<openthread_api_config_ftd.h>' -DTHREAD_WB -DSTM32WB55xx -c -I../../Core/Inc -I"C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/User" -I"C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/stts22h" -I../../STM32_WPAN/App -I../../Middlewares/ST/STM32_WPAN -I../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../../Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/platform -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/third_party/mbedtls/repo/include -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/src/core -I../../Middlewares/ST/STM32_WPAN/utilities -I../../Utilities/LCD -I../../Utilities/lpm/tiny_lpm -I../../Utilities/sequencer -I../../Drivers/STM32WBxx_HAL_Driver/Inc -I../../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Include -I../../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../../Drivers/BSP/Components/Common -I../../Drivers/BSP/STM32WB5MM-DK -I"C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Application/User/app_algo.d" -MT"Application/User/app_algo.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/User/app_algo.o"
 In file included from ../Application/User/app_algo.h:7,
@@ -7,16 +7,16 @@ In file included from ../Application/User/app_algo.h:7,
 ../../Core/Inc/stm_logging.h:41:37: warning: implicit declaration of function 'DbgTraceGetFileName' [-Wimplicit-function-declaration]
    41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
       |                                     ^~~~~~~~~~~~~~~~~~~
-../Application/User/app_algo.c:70:2: note: in expansion of macro 'APP_DBG'
-   70 |  APP_DBG("LL  size :%d\n",ll->size);
+../Application/User/app_algo.c:73:2: note: in expansion of macro 'APP_DBG'
+   73 |  APP_DBG("LL  size :%d\n",ll->size);
       |  ^~~~~~~
 ../../Core/Inc/stm_logging.h:41:16: warning: format '%s' expects argument of type 'char *', but argument 2 has type 'int' [-Wformat=]
    41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
       |                ^~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       |                                     |
       |                                     int
-../Application/User/app_algo.c:70:2: note: in expansion of macro 'APP_DBG'
-   70 |  APP_DBG("LL  size :%d\n",ll->size);
+../Application/User/app_algo.c:73:2: note: in expansion of macro 'APP_DBG'
+   73 |  APP_DBG("LL  size :%d\n",ll->size);
       |  ^~~~~~~
 ../../Core/Inc/stm_logging.h:41:23: note: format string is defined here
    41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
@@ -30,8 +30,8 @@ In file included from ../Application/User/app_algo.h:7,
       |                ^~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       |                                     |
       |                                     int
-../Application/User/app_algo.c:88:2: note: in expansion of macro 'APP_DBG'
-   88 |  APP_DBG("LL Length:%d, size :%d\n", ctr,ll->size);
+../Application/User/app_algo.c:91:2: note: in expansion of macro 'APP_DBG'
+   91 |  APP_DBG("LL Length:%d, size :%d\n", ctr,ll->size);
       |  ^~~~~~~
 ../../Core/Inc/stm_logging.h:41:23: note: format string is defined here
    41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
@@ -45,8 +45,8 @@ In file included from ../Application/User/app_algo.h:7,
       |                ^~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       |                                     |
       |                                     int
-../Application/User/app_algo.c:117:3: note: in expansion of macro 'APP_DBG'
-  117 |   APP_DBG("FSM STATE INIT");
+../Application/User/app_algo.c:119:3: note: in expansion of macro 'APP_DBG'
+  119 |   APP_DBG("FSM STATE INIT");
       |   ^~~~~~~
 ../../Core/Inc/stm_logging.h:41:23: note: format string is defined here
    41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
@@ -59,8 +59,8 @@ In file included from ../Application/User/app_algo.h:7,
       |                ^~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       |                                     |
       |                                     int
-../Application/User/app_algo.c:122:3: note: in expansion of macro 'APP_DBG'
-  122 |   APP_DBG("FSM STATE MEAS");
+../Application/User/app_algo.c:124:3: note: in expansion of macro 'APP_DBG'
+  124 |   APP_DBG("FSM STATE MEAS");
       |   ^~~~~~~
 ../../Core/Inc/stm_logging.h:41:23: note: format string is defined here
    41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
@@ -73,8 +73,8 @@ In file included from ../Application/User/app_algo.h:7,
       |                ^~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       |                                     |
       |                                     int
-../Application/User/app_algo.c:129:3: note: in expansion of macro 'APP_DBG'
-  129 |   APP_DBG("FSM STATE PRETRIG\n");
+../Application/User/app_algo.c:131:3: note: in expansion of macro 'APP_DBG'
+  131 |   APP_DBG("FSM STATE PRETRIG\n");
       |   ^~~~~~~
 ../../Core/Inc/stm_logging.h:41:23: note: format string is defined here
    41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
@@ -87,8 +87,30 @@ In file included from ../Application/User/app_algo.h:7,
       |                ^~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       |                                     |
       |                                     int
-../Application/User/app_algo.c:137:3: note: in expansion of macro 'APP_DBG'
-  137 |   APP_DBG("Pretrig ctr:%d", ct);
+../Application/User/app_algo.c:140:3: note: in expansion of macro 'APP_DBG'
+  140 |   APP_DBG("Pretrig ctr:%d", ct);
+      |   ^~~~~~~
+../../Core/Inc/stm_logging.h:41:23: note: format string is defined here
+   41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
+      |                      ~^
+      |                       |
+      |                       char *
+      |                      %d
+../Application/User/app_algo.c:137:14: warning: unused variable 'h' [-Wunused-variable]
+  137 |   int32_t t, h;
+      |              ^
+../Application/User/app_algo.c:137:11: warning: unused variable 't' [-Wunused-variable]
+  137 |   int32_t t, h;
+      |           ^
+In file included from ../Application/User/app_algo.h:7,
+                 from ../Application/User/app_algo.c:1:
+../../Core/Inc/stm_logging.h:41:16: warning: format '%s' expects argument of type 'char *', but argument 2 has type 'int' [-Wformat=]
+   41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
+      |                ^~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                     |
+      |                                     int
+../Application/User/app_algo.c:150:3: note: in expansion of macro 'APP_DBG'
+  150 |   APP_DBG("FSM STATE HEATING");
       |   ^~~~~~~
 ../../Core/Inc/stm_logging.h:41:23: note: format string is defined here
    41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
@@ -101,22 +123,8 @@ In file included from ../Application/User/app_algo.h:7,
       |                ^~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       |                                     |
       |                                     int
-../Application/User/app_algo.c:147:3: note: in expansion of macro 'APP_DBG'
-  147 |   APP_DBG("FSM STATE HEATING");
-      |   ^~~~~~~
-../../Core/Inc/stm_logging.h:41:23: note: format string is defined here
-   41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
-      |                      ~^
-      |                       |
-      |                       char *
-      |                      %d
-../../Core/Inc/stm_logging.h:41:16: warning: format '%s' expects argument of type 'char *', but argument 2 has type 'int' [-Wformat=]
-   41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
-      |                ^~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                     |
-      |                                     int
-../Application/User/app_algo.c:153:3: note: in expansion of macro 'APP_DBG'
-  153 |   APP_DBG("FSM STATE COOLDOWN");
+../Application/User/app_algo.c:156:3: note: in expansion of macro 'APP_DBG'
+  156 |   APP_DBG("FSM STATE COOLDOWN");
       |   ^~~~~~~
 ../../Core/Inc/stm_logging.h:41:23: note: format string is defined here
    41 |         printf("\r\n[%s][%s][%d] ", DbgTraceGetFileName(__FILE__),__FUNCTION__,__LINE__);   \
@@ -134,15 +142,15 @@ Finished building target: Thread_Coap_Generic.elf
 arm-none-eabi-size   Thread_Coap_Generic.elf 
 arm-none-eabi-objdump -h -S  Thread_Coap_Generic.elf  > "Thread_Coap_Generic.list"
    text	   data	    bss	    dec	    hex	filename
-  63796	    165	  19850	  83811	  14763	Thread_Coap_Generic.elf
+  48900	    165	  15202	  64267	   fb0b	Thread_Coap_Generic.elf
 Finished building: default.size.stdout
  
 Finished building: Thread_Coap_Generic.list
  
-11:33:09 **** Incremental Build of configuration Debug for project Thread_Coap_Generic ****
+17:43:32 **** Incremental Build of configuration Debug for project Thread_Coap_Generic ****
 make -j8 all 
 arm-none-eabi-size   Thread_Coap_Generic.elf 
    text	   data	    bss	    dec	    hex	filename
-  63796	    165	  19850	  83811	  14763	Thread_Coap_Generic.elf
+  48900	    165	  15202	  64267	   fb0b	Thread_Coap_Generic.elf
 Finished building: default.size.stdout
  

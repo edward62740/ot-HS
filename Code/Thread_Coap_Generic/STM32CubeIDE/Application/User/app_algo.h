@@ -11,6 +11,6 @@ typedef enum {
 } eResFsm;
 
 void app_algo_init();
-eResFsm app_algo_proc(SensorData_t data, bool ext_sig_reset);
+eResFsm app_algo_proc(SensorData_t data, bool ext_sig_reset, int8_t *state);
 
 #endif //APP_ALGO_H

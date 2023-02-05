@@ -54,6 +54,23 @@
 static uint8_t sht4x_cmd_measure = SHT4X_CMD_MEASURE_HPM;
 static uint16_t sht4x_cmd_measure_delay_us = SHT4X_MEASUREMENT_DURATION_USEC;
 
+
+int16_t sht4x_activate_medium_heater(void) {
+    int16_t error;
+    uint8_t buffer[6];
+    uint16_t offset = 0;
+    buffer[offset++] = (uint8_t)0x24;
+
+    error = sensirion_i2c_write(SHT4X_ADDRESS, &buffer[0], offset);
+    if (error) {
+        return error;
+    }
+
+    sensirion_sleep_usec(110000);
+
+    return NO_ERROR;
+}
+
 int16_t sht4x_measure_blocking_read(int32_t* temperature, int32_t* humidity) {
     int16_t ret;
 
