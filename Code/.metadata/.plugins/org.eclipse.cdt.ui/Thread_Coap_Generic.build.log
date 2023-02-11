@@ -1,10 +1,43 @@
-17:43:32 **** Incremental Build of configuration Debug for project Thread_Coap_Generic ****
+18:35:43 **** Incremental Build of configuration Debug for project Thread_Coap_Generic ****
 make -j8 all 
+arm-none-eabi-gcc "C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER '-DOPENTHREAD_CONFIG_FILE=<openthread_api_config_ftd.h>' -DTHREAD_WB -DSTM32WB55xx -c -I../../Core/Inc -I"C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/User" -I"C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/stts22h" -I../../STM32_WPAN/App -I../../Middlewares/ST/STM32_WPAN -I../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../../Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/platform -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/third_party/mbedtls/repo/include -I../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/src/core -I../../Middlewares/ST/STM32_WPAN/utilities -I../../Utilities/LCD -I../../Utilities/lpm/tiny_lpm -I../../Utilities/sequencer -I../../Drivers/STM32WBxx_HAL_Driver/Inc -I../../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Include -I../../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../../Drivers/BSP/Components/Common -I../../Drivers/BSP/STM32WB5MM-DK -I"C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Application/User/STM32_WPAN/App/app_thread.d" -MT"Application/User/STM32_WPAN/App/app_thread.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/User/STM32_WPAN/App/app_thread.o"
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:100:13: warning: 'APP_THREAD_CoapSendRequest' declared 'static' but never defined [-Wunused-function]
+  100 | static void APP_THREAD_CoapSendRequest(otCoapResource* aCoapRessource,
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:644:13: warning: 'APP_THREAD_CoapDataRespHandler' defined but not used [-Wunused-function]
+  644 | static void APP_THREAD_CoapDataRespHandler(
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:459:13: warning: 'APP_THREAD_StateNotif' defined but not used [-Wunused-function]
+  459 | static void APP_THREAD_StateNotif(uint32_t NotifFlags, void *pContext)
+      |             ^~~~~~~~~~~~~~~~~~~~~
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:64:17: warning: 'sleepyEndDeviceFlag' defined but not used [-Wunused-variable]
+   64 | static uint32_t sleepyEndDeviceFlag = FALSE;
+      |                 ^~~~~~~~~~~~~~~~~~~
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c: In function 'APP_THREAD_SendCoapMsg':
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:681:23: warning: 'tmp_aux' may be used uninitialized in this function [-Wmaybe-uninitialized]
+  681 |  sensor_data.temp_aux = tmp_aux;
+      |  ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:698:2: warning: 'rssi' may be used uninitialized in this function [-Wmaybe-uninitialized]
+  698 |  snprintf(tmp_tx_buf, 254, "%d,%x%x%x%x%x%x%x%x,%ld,%ld,%d,%d,%d,%d", device_type,
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  699 |    eui64.m8[0], eui64.m8[1], eui64.m8[02], eui64.m8[3], eui64.m8[4],
+      |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  700 |    eui64.m8[5], eui64.m8[6], eui64.m8[7], sensor_data.temp_main,
+      |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  701 |    sensor_data.humidity, sensor_data.temp_aux, ret, rssi,state);
+      |    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:698:2: warning: 'state' may be used uninitialized in this function [-Wmaybe-uninitialized]
+arm-none-eabi-gcc -o "Thread_Coap_Generic.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Workstation\Desktop\ot-HS\Code\Thread_Coap_Generic\STM32CubeIDE\STM32WB5MMGHX_FLASH.ld" -Wl,-Map="Thread_Coap_Generic.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Thread_Coap_Generic.elf
+ 
 arm-none-eabi-size   Thread_Coap_Generic.elf 
+arm-none-eabi-objdump -h -S  Thread_Coap_Generic.elf  > "Thread_Coap_Generic.list"
    text	   data	    bss	    dec	    hex	filename
-  48900	    165	  15202	  64267	   fb0b	Thread_Coap_Generic.elf
+  63748	    181	  19858	  83787	  1474b	Thread_Coap_Generic.elf
 Finished building: default.size.stdout
  
+Finished building: Thread_Coap_Generic.list
+ 
 
-17:43:33 Build Finished. 0 errors, 0 warnings. (took 613ms)
+18:35:45 Build Finished. 0 errors, 7 warnings. (took 1s.495ms)
 

@@ -1,1 +1,4 @@
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/stm_logging.c:172:6:logApplication	16	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/stm_logging.c:69:24:logRegion	56	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/stm_logging.c:109:27:levelToString	16	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/stm_logging.c:139:24:logLevel	24	static
+C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/stm_logging.c:172:6:logApplication	280	static

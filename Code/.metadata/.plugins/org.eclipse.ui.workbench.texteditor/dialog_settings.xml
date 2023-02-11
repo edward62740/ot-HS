@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="algo"/>
+		<item key="selection" value=""/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="algo"/>
-			<item value="080036D4"/>
-			<item value="permissions"/>
-			<item value="brAddr"/>
-			<item value="p"/>
-			<item value="sleepy"/>
-			<item value="0U"/>
-			<item value="networkdata"/>
-			<item value="APP_THREAD_CoapPermissionsRequestHandler"/>
-			<item value="HAL_GPIO_WritePin"/>
-			<item value="OT_Ressource"/>
-			<item value="LSE"/>
-			<item value="32768"/>
-			<item value="otthreadseten"/>
-			<item value="otthread"/>
+			<item value="region"/>
+			<item value="otSrpClientEnableAutoStartMode"/>
+			<item value="OPENTHREAD_CONFIG_SRP_CLIENT_ENABLE"/>
+			<item value="OPENTHREAD_CONFIG_SRP_CLIENT_BUFFERS_ENABLE"/>
+			<item value="otSrpClientBuffersGetHostNameString"/>
+			<item value="networkKey"/>
+			<item value="APP_THREAD_DeviceConfig"/>
+			<item value="APP_THREAD_SendCoapMsg"/>
+			<item value="OsTaskSetSedModeId"/>
+			<item value="APP_THREAD_SetThreadMode"/>
+			<item value="mode"/>
+			<item value="APP_THREAD_SetSleepyEndDeviceMode"/>
+			<item value="HW_TS_Start(setThreadModeTimerID, (uint32_t)THREAD_CHANGE_MODE_TIMEOUT);"/>
+			<item value="setThreadModeTimerID"/>
+			<item value="PWR_EnterStopMode"/>
 		</list>
 		<list key="replacehistory">
 			<item value="stts22h_write_reg("/>

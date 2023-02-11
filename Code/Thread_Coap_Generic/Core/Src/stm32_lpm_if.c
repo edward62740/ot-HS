@@ -161,7 +161,7 @@ void PWR_EnterStopMode(void)
 
   LL_PWR_SetPowerMode(LL_PWR_MODE_STOP2);
 
-  LL_C2_PWR_SetPowerMode(LL_PWR_MODE_SHUTDOWN);
+ // LL_C2_PWR_SetPowerMode(LL_PWR_MODE_SHUTDOWN);
   LL_LPM_EnableDeepSleep(); /**< Set SLEEPDEEP bit of Cortex System Control Register */
   /**
    * This option is used to ensure that store operations are completed

@@ -100,7 +100,7 @@
  *
  ******************************************************************************/
 
-#define CFG_FULL_LOW_POWER    1
+#define CFG_FULL_LOW_POWER    0
 
 #if (CFG_FULL_LOW_POWER == 1)
 #undef CFG_LPM_SUPPORTED

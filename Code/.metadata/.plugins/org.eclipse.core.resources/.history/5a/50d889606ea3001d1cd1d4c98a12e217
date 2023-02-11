@@ -1,8 +1,0 @@
-#ifndef APP_ALGO_HPP
-#define APP_ALGO_HPP
-
-
-
-void FSM_init();
-
-#endif //APP_ALGO_HPP

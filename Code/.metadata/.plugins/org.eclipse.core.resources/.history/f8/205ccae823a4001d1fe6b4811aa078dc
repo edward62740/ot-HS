@@ -1,9 +1,0 @@
-#ifndef APP_ALGO_H
-#define APP_ALGO_H
-
-#include "app_common.h"
-#include "main.h"
-void app_algo_init();
-eResFsm app_algo_proc(SensorData_t data, uint8_t ext_sig_reset);
-
-#endif //APP_ALGO_H

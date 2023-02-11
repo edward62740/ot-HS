@@ -76,6 +76,8 @@
 "./Middlewares/STM32_WPAN/shci_tl.o"
 "./Middlewares/STM32_WPAN/shci_tl_if.o"
 "./Middlewares/STM32_WPAN/sntp.o"
+"./Middlewares/STM32_WPAN/srp_client.o"
+"./Middlewares/STM32_WPAN/srp_client_buffers.o"
 "./Middlewares/STM32_WPAN/tasklet.o"
 "./Middlewares/STM32_WPAN/thread.o"
 "./Middlewares/STM32_WPAN/thread_ftd.o"

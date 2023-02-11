@@ -1,8 +1,0 @@
-#ifndef APP_ALGO_HPP
-#define APP_ALGO_HPP
-
-
-
-void Thread_Coap_Generic();
-
-#endif //APP_ALGO_HPP

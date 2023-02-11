@@ -116,7 +116,7 @@ void otSrpClientSetCallback(otInstance *aInstance, otSrpClientCallback aCallback
   p_ot_req = THREAD_Get_OTCmdRspPayloadBuffer();
 }
 
-#if OPENTHREAD_CONFIG_SRP_CLIENT_AUTO_START_API_ENABLE
+
 void otSrpClientEnableAutoStartMode(otInstance *aInstance, otSrpClientAutoStartCallback aCallback, void *aContext)
 {
   Pre_OtCmdProcessing();
@@ -166,7 +166,6 @@ bool otSrpClientIsAutoStartModeEnabled(otInstance *aInstance)
   p_ot_req = THREAD_Get_OTCmdRspPayloadBuffer();
   return (bool)p_ot_req->Data[0];
 }
-#endif // OPENTHREAD_CONFIG_SRP_CLIENT_AUTO_START_API_ENABLE
 
 uint32_t otSrpClientGetTtl(otInstance *aInstance)
 {
