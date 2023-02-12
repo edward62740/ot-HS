@@ -1,6 +1,6 @@
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Utilities/lpm/tiny_lpm/stm32_lpm.c:133:6:UTIL_LPM_Init	4	static
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Utilities/lpm/tiny_lpm/stm32_lpm.c:140:6:UTIL_LPM_DeInit	4	static
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Utilities/lpm/tiny_lpm/stm32_lpm.c:144:6:UTIL_LPM_SetStopMode	32	static,ignoring_inline_asm
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Utilities/lpm/tiny_lpm/stm32_lpm.c:169:6:UTIL_LPM_SetOffMode	32	static,ignoring_inline_asm
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Utilities/lpm/tiny_lpm/stm32_lpm.c:194:17:UTIL_LPM_GetMode	24	static,ignoring_inline_asm
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Utilities/lpm/tiny_lpm/stm32_lpm.c:227:6:UTIL_LPM_EnterLowPower	24	static,ignoring_inline_asm
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Utilities/lpm/tiny_lpm/stm32_lpm.c:133:6:UTIL_LPM_Init	4	static
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Utilities/lpm/tiny_lpm/stm32_lpm.c:140:6:UTIL_LPM_DeInit	4	static
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Utilities/lpm/tiny_lpm/stm32_lpm.c:144:6:UTIL_LPM_SetStopMode	32	static,ignoring_inline_asm
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Utilities/lpm/tiny_lpm/stm32_lpm.c:169:6:UTIL_LPM_SetOffMode	32	static,ignoring_inline_asm
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Utilities/lpm/tiny_lpm/stm32_lpm.c:194:17:UTIL_LPM_GetMode	24	static,ignoring_inline_asm
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Utilities/lpm/tiny_lpm/stm32_lpm.c:227:6:UTIL_LPM_EnterLowPower	24	static,ignoring_inline_asm

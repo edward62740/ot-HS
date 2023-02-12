@@ -1,5 +1,5 @@
 Middlewares/STM32_WPAN/openthread_api_wb.o: \
- C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/openthread_api_wb.c \
+ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/openthread_api_wb.c \
  ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal.h \
  ../../Core/Inc/stm32wbxx_hal_conf.h \
  ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_dma.h \
@@ -64,7 +64,7 @@ Middlewares/STM32_WPAN/openthread_api_wb.o: \
  ../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/tcp.h \
  ../../Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/openthread_api_config_ftd.h \
  ../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/tl.h \
- C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/openthread_api_wb.h \
+ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/openthread_api_wb.h \
  ../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/backbone_router_ftd.h \
  ../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/backbone_router.h \
  ../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/netdata.h \
@@ -148,7 +148,7 @@ Middlewares/STM32_WPAN/openthread_api_wb.o: \
  ../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/netdata_publisher.h \
  ../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/netdiag.h \
  ../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/ping_sender.h \
- C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/stm32wbxx_core_interface_def.h \
+ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/stm32wbxx_core_interface_def.h \
  ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_def.h \
  ../../Middlewares/ST/STM32_WPAN/utilities/dbg_trace.h \
  ../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci/shci.h \
@@ -217,7 +217,7 @@ Middlewares/STM32_WPAN/openthread_api_wb.o: \
 ../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/tcp.h:
 ../../Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/openthread_api_config_ftd.h:
 ../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/tl.h:
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/openthread_api_wb.h:
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/openthread_api_wb.h:
 ../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/backbone_router_ftd.h:
 ../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/backbone_router.h:
 ../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/netdata.h:
@@ -301,7 +301,7 @@ C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32
 ../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/netdata_publisher.h:
 ../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/netdiag.h:
 ../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/ping_sender.h:
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/stm32wbxx_core_interface_def.h:
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/stm32wbxx_core_interface_def.h:
 ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_def.h:
 ../../Middlewares/ST/STM32_WPAN/utilities/dbg_trace.h:
 ../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci/shci.h:

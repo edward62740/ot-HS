@@ -1,5 +1,5 @@
 Middlewares/STM32_WPAN/joiner.o: \
- C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/joiner.c \
+ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/joiner.c \
  ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal.h \
  ../../Core/Inc/stm32wbxx_hal_conf.h \
  ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_dma.h \
@@ -45,7 +45,7 @@ Middlewares/STM32_WPAN/joiner.o: \
  ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_uart.h \
  ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_uart_ex.h \
  ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_system.h \
- C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/stm32wbxx_core_interface_def.h \
+ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/stm32wbxx_core_interface_def.h \
  ../../Middlewares/ST/STM32_WPAN/stm32_wpan_common.h \
  ../../Drivers/CMSIS/Include/cmsis_compiler.h \
  ../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/coap.h \
@@ -110,7 +110,7 @@ Middlewares/STM32_WPAN/joiner.o: \
 ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_uart.h:
 ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_uart_ex.h:
 ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_system.h:
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/stm32wbxx_core_interface_def.h:
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/stm32wbxx_core_interface_def.h:
 ../../Middlewares/ST/STM32_WPAN/stm32_wpan_common.h:
 ../../Drivers/CMSIS/Include/cmsis_compiler.h:
 ../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/coap.h:

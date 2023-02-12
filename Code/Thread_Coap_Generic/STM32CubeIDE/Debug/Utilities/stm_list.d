@@ -1,6 +1,6 @@
 Utilities/stm_list.o: \
- C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/utilities/stm_list.c \
- C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/utilities/utilities_common.h \
+ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/utilities/stm_list.c \
+ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/utilities/utilities_common.h \
  ../../Core/Inc/app_conf.h \
  ../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/hw.h \
  ../../Core/Inc/hw_conf.h ../../Core/Inc/hw_if.h \
@@ -60,10 +60,10 @@ Utilities/stm_list.o: \
  ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_hsem.h \
  ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_gpio.h \
  ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_rtc.h \
- C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/utilities/stm_list.h \
+ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/utilities/stm_list.h \
  ../../Middlewares/ST/STM32_WPAN/stm32_wpan_common.h \
  ../../Drivers/CMSIS/Include/cmsis_compiler.h
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/utilities/utilities_common.h:
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/utilities/utilities_common.h:
 ../../Core/Inc/app_conf.h:
 ../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/hw.h:
 ../../Core/Inc/hw_conf.h:
@@ -124,6 +124,6 @@ C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32
 ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_hsem.h:
 ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_gpio.h:
 ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_rtc.h:
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/utilities/stm_list.h:
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/utilities/stm_list.h:
 ../../Middlewares/ST/STM32_WPAN/stm32_wpan_common.h:
 ../../Drivers/CMSIS/Include/cmsis_compiler.h:

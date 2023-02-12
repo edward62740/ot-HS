@@ -1,5 +1,5 @@
 Application/User/hw_timerserver.o: \
- C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/hw_timerserver.c \
+ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Core/Src/hw_timerserver.c \
  ../../Core/Inc/app_common.h ../../Core/Inc/app_conf.h \
  ../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/hw.h \
  ../../Core/Inc/hw_conf.h ../../Core/Inc/hw_if.h \

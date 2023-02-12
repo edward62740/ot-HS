@@ -1,5 +1,5 @@
 Application/User/stm_logging.o: \
- C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/stm_logging.c \
+ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Core/Src/stm_logging.c \
  ../../Core/Inc/app_conf.h \
  ../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/hw.h \
  ../../Core/Inc/hw_conf.h ../../Core/Inc/hw_if.h \

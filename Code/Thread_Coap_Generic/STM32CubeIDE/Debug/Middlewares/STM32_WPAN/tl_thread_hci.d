@@ -1,11 +1,11 @@
 Middlewares/STM32_WPAN/tl_thread_hci.o: \
- C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/tl_thread_hci.c \
+ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/tl_thread_hci.c \
  ../../Middlewares/ST/STM32_WPAN/stm32_wpan_common.h \
  ../../Drivers/CMSIS/Include/cmsis_compiler.h \
  ../../Drivers/CMSIS/Include/cmsis_gcc.h \
  ../../Middlewares/ST/STM32_WPAN/utilities/stm_list.h \
- C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/tl.h \
- C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/tl_thread_hci.h \
+ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/tl.h \
+ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/tl_thread_hci.h \
  ../../Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/stm32wbxx_core_interface_def.h \
  ../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/coap.h \
  ../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/ip6.h \
@@ -24,8 +24,8 @@ Middlewares/STM32_WPAN/tl_thread_hci.o: \
 ../../Drivers/CMSIS/Include/cmsis_compiler.h:
 ../../Drivers/CMSIS/Include/cmsis_gcc.h:
 ../../Middlewares/ST/STM32_WPAN/utilities/stm_list.h:
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/tl.h:
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/tl_thread_hci.h:
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/tl.h:
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/tl_thread_hci.h:
 ../../Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/stm32wbxx_core_interface_def.h:
 ../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/coap.h:
 ../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/ip6.h:

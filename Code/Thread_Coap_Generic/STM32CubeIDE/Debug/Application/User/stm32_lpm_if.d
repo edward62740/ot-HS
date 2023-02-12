@@ -1,5 +1,5 @@
 Application/User/stm32_lpm_if.o: \
- C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/stm32_lpm_if.c \
+ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Core/Src/stm32_lpm_if.c \
  ../../Core/Inc/stm32_lpm_if.h ../../Utilities/lpm/tiny_lpm/stm32_lpm.h \
  ../../Core/Inc/app_conf.h \
  ../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/hw.h \

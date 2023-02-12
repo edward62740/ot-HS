@@ -228,7 +228,7 @@ typedef enum
  * Note : Refer to utilities_conf.h file in order to details
  *        the level of traces : CFG_DEBUG_TRACE_FULL or CFG_DEBUG_TRACE_LIGHT
  *****************************************************************************/
-#define CFG_DEBUG_TRACE    1
+#define CFG_DEBUG_TRACE    0
 
 #if (CFG_FULL_LOW_POWER == 1)
 #undef CFG_DEBUG_TRACE

@@ -1,5 +1,5 @@
 Application/User/STM32_WPAN/App/app_thread.o: \
- C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c \
+ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c \
  ../../Core/Inc/app_common.h ../../Core/Inc/app_conf.h \
  ../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/hw.h \
  ../../Core/Inc/hw_conf.h ../../Core/Inc/hw_if.h \
@@ -72,7 +72,7 @@ Application/User/STM32_WPAN/App/app_thread.o: \
  ../../Utilities/LCD/stm32_lcd.h ../../Utilities/LCD/../Fonts/fonts.h \
  ../../Drivers/BSP/Components/Common/lcd.h \
  ../../Middlewares/ST/STM32_WPAN/utilities/dbg_trace.h \
- C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.h \
+ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.h \
  ../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/tl.h \
  ../../Middlewares/ST/STM32_WPAN/stm32_wpan_common.h \
  ../../Drivers/CMSIS/Include/cmsis_compiler.h \
@@ -183,13 +183,13 @@ Application/User/STM32_WPAN/App/app_thread.o: \
  ../../Core/Inc/stm_logging.h ../../Utilities/lpm/tiny_lpm/stm32_lpm.h \
  ../../Utilities/sequencer/stm32_seq.h \
  ../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/dataset.h \
- C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/User/app_algo.h \
+ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/User/app_algo.h \
  ../../Core/Inc/main.h ../../Core/Inc/app_entry.h \
  ../../Core/Inc/app_common.h \
- C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sht4x.h \
- C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sensirion_arch_config.h \
- C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sensirion_i2c.h \
- C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/stts22h/stts22h_reg.h
+ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sht4x.h \
+ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sensirion_arch_config.h \
+ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sensirion_i2c.h \
+ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/stts22h/stts22h_reg.h
 ../../Core/Inc/app_common.h:
 ../../Core/Inc/app_conf.h:
 ../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/hw.h:
@@ -266,7 +266,7 @@ Application/User/STM32_WPAN/App/app_thread.o: \
 ../../Utilities/LCD/../Fonts/fonts.h:
 ../../Drivers/BSP/Components/Common/lcd.h:
 ../../Middlewares/ST/STM32_WPAN/utilities/dbg_trace.h:
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.h:
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.h:
 ../../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/tl.h:
 ../../Middlewares/ST/STM32_WPAN/stm32_wpan_common.h:
 ../../Drivers/CMSIS/Include/cmsis_compiler.h:
@@ -378,11 +378,11 @@ C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_t
 ../../Utilities/lpm/tiny_lpm/stm32_lpm.h:
 ../../Utilities/sequencer/stm32_seq.h:
 ../../Middlewares/ST/STM32_WPAN/thread/openthread/stack/include/openthread/dataset.h:
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/User/app_algo.h:
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/User/app_algo.h:
 ../../Core/Inc/main.h:
 ../../Core/Inc/app_entry.h:
 ../../Core/Inc/app_common.h:
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sht4x.h:
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sensirion_arch_config.h:
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sensirion_i2c.h:
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/stts22h/stts22h_reg.h:
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sht4x.h:
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sensirion_arch_config.h:
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sensirion_i2c.h:
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/stts22h/stts22h_reg.h:

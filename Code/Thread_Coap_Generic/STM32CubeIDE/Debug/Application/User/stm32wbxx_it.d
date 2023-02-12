@@ -1,5 +1,5 @@
 Application/User/stm32wbxx_it.o: \
- C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/stm32wbxx_it.c \
+ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Core/Src/stm32wbxx_it.c \
  ../../Core/Inc/main.h \
  ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal.h \
  ../../Core/Inc/stm32wbxx_hal_conf.h \

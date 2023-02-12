@@ -1,5 +1,5 @@
 Application/User/main.o: \
- C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/Core/Src/main.c \
+ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Core/Src/main.c \
  ../../Core/Inc/main.h \
  ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal.h \
  ../../Core/Inc/stm32wbxx_hal_conf.h \
@@ -73,11 +73,11 @@ Application/User/main.o: \
  ../../Drivers/BSP/Components/Common/lcd.h ../../Core/Inc/app_common.h \
  ../../Middlewares/ST/STM32_WPAN/utilities/dbg_trace.h \
  ../../Core/Inc/stm_logging.h \
- C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sensirion_i2c.h \
- C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sensirion_arch_config.h \
- C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sht4x.h \
- C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sensirion_i2c.h \
- C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/User/app_algo.h \
+ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sensirion_i2c.h \
+ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sensirion_arch_config.h \
+ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sht4x.h \
+ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sensirion_i2c.h \
+ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/User/app_algo.h \
  ../../Core/Inc/app_common.h
 ../../Core/Inc/main.h:
 ../../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal.h:
@@ -155,9 +155,9 @@ Application/User/main.o: \
 ../../Core/Inc/app_common.h:
 ../../Middlewares/ST/STM32_WPAN/utilities/dbg_trace.h:
 ../../Core/Inc/stm_logging.h:
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sensirion_i2c.h:
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sensirion_arch_config.h:
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sht4x.h:
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sensirion_i2c.h:
-C:/Users/Workstation/Desktop/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/User/app_algo.h:
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sensirion_i2c.h:
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sensirion_arch_config.h:
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sht4x.h:
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/Sensors/sht4x-5.3.0/sensirion_i2c.h:
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32CubeIDE/Application/User/app_algo.h:
 ../../Core/Inc/app_common.h:
