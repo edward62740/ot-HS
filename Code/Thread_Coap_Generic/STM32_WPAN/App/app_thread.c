@@ -143,7 +143,7 @@ static otCoapResource OT_Ressource =
 
 /* USER CODE END PV */
 static const uint32_t coapMessageIntervalMs =
-		(5 * 1000 * 1000 / CFG_TS_TICK_VAL);
+		(30 * 1000 * 1000 / CFG_TS_TICK_VAL);
 static uint8_t coapMessageTimerId;
 static uint8_t setThreadLpTimerId;
 char tmp_tx_buf[256];

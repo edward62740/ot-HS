@@ -23,10 +23,8 @@ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/
 C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:893:13:Wait_Getting_Ack_From_M0	8	static
 C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:905:13:Receive_Ack_From_M0	8	static
 C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:916:13:Receive_Notification_From_M0	8	static
-C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:925:13:RxCpltCallback	8	static
-C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:992:20:Send_CLI_To_M0	8	static
 C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:1014:20:Send_CLI_Ack_For_OT	8	static
-C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:1027:6:APP_THREAD_Init_UART_CLI	8	static
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:1027:6:APP_THREAD_Init_UART_CLI	4	static
 C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:1048:6:APP_THREAD_TL_THREAD_INIT	8	static
 C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:1065:6:TL_THREAD_CliNotReceived	24	static
 C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/STM32_WPAN/App/app_thread.c:1093:6:HostTxCb	8	static
