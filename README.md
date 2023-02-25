@@ -3,12 +3,15 @@
 ## Overview
 This is a temperature/humidity sensor designed for operation around saturation RH, to provide accurate data to HVAC systems.
 To facilitate accurate readings, the sensor runs a simple algorithm to run a heater and compensate for creep errors.
-The sensor communicates using OpenThread and periodically sends data over CoAP. <br>
+The sensor communicates using OpenThread and periodically sends data over CoAP.
+<br><br>
+
 ![HS](https://github.com/edward62740/ot-HS/blob/master/Doc/hs.jpeg)<br>
 
 ## Design
 This device consists of a STM32WB5MMGH6TR module, SHT41 T/RH sensor and STTS22 T sensor as reference for the algorithm.
-<br>
+<br><br>
+
 ![PCB](https://github.com/edward62740/ot-HS/blob/master/Doc/pcb.jpeg)<br>
 
 

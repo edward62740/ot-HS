@@ -1,5 +1,0 @@
-../Application/Sensors/sht4x-5.3.0/sensirion_hw_i2c_implementation.c:47:6:sensirion_i2c_init	16	static
-../Application/Sensors/sht4x-5.3.0/sensirion_hw_i2c_implementation.c:54:6:sensirion_i2c_release	4	static
-../Application/Sensors/sht4x-5.3.0/sensirion_hw_i2c_implementation.c:68:8:sensirion_i2c_read	24	static
-../Application/Sensors/sht4x-5.3.0/sensirion_hw_i2c_implementation.c:83:8:sensirion_i2c_write	24	static
-../Application/Sensors/sht4x-5.3.0/sensirion_hw_i2c_implementation.c:94:6:sensirion_sleep_usec	24	static

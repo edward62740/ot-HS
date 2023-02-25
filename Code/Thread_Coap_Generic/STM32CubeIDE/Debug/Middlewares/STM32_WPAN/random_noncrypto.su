@@ -1,8 +1,0 @@
-C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/random_noncrypto.c:33:10:otRandomNonCryptoGetUint32	16	static
-C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/random_noncrypto.c:49:9:otRandomNonCryptoGetUint8	16	static
-C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/random_noncrypto.c:65:10:otRandomNonCryptoGetUint16	16	static
-C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/random_noncrypto.c:81:9:otRandomNonCryptoGetUint8InRange	24	static
-C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/random_noncrypto.c:99:10:otRandomNonCryptoGetUint16InRange	24	static
-C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/random_noncrypto.c:117:10:otRandomNonCryptoGetUint32InRange	24	static
-C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/random_noncrypto.c:135:6:otRandomNonCryptoFillBuffer	24	static
-C:/Users/Workstation/Documents/GitHub/ot-HS/Code/Thread_Coap_Generic/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/random_noncrypto.c:152:10:otRandomNonCryptoAddJitter	24	static
