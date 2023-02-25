@@ -290,19 +290,5 @@
 			<resource resourceType="PROJECT" workspacePath="/Thread_Coap_Generic"/>
 		</configuration>
 	</storageModule>
-	<storageModule moduleId="scannerConfiguration">
-		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		<scannerConfigBuildInfo instanceId="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.1342143684;com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.1342143684.;com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.1374357157;com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.input.cpp.2045886252">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.release.378134259;com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.release.378134259.;com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.1583488194;com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.input.cpp.991097445">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.release.378134259;com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.release.378134259.;com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.911419448;com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.1669778126">
-			<autodiscovery enabled="false" problemReportingEnabled="true" selectedProfileId=""/>
-		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.1342143684;com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.1342143684.;com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.779290871;com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.1766918371">
-			<autodiscovery enabled="false" problemReportingEnabled="true" selectedProfileId=""/>
-		</scannerConfigBuildInfo>
-	</storageModule>
+	<storageModule moduleId="scannerConfiguration"/>
 </cproject>
