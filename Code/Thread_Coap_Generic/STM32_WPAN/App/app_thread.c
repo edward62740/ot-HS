@@ -34,6 +34,7 @@
 #include "app_algo.h"
 #include "sht4x.h"
 #include "stts22h_reg.h"
+
 #if (CFG_USB_INTERFACE_ENABLE != 0)
 #include "vcp.h"
 #include "vcp_conf.h"
@@ -62,7 +63,6 @@
 
 static otLinkModeConfig OT_LinkMode =
 { 0 };
-static uint32_t sleepyEndDeviceFlag = FALSE;
 /* USER CODE END PD */
 
 /* Private macros ------------------------------------------------------------*/
@@ -104,7 +104,7 @@ static void APP_THREAD_CoapPermissionsRequestHandler(void *pContext,
 
 static void APP_THREAD_CoapDataRespHandler(void *aContext, otMessage *pMessage,
 		const otMessageInfo *pMessageInfo, otError result);
-static void APP_THREAD_SendCoapMsg(char *buf, bool require_ack);
+static void APP_THREAD_SendCoapMsg(char *buf);
 void appSrpInit(void);
 void APP_THREAD_SetSleepyEndDeviceMode(void);
 /* USER CODE END PFP */
@@ -146,41 +146,42 @@ static const uint32_t coapMessageIntervalMs =
 		(30 * 1000 * 1000 / CFG_TS_TICK_VAL);
 static uint8_t coapMessageTimerId;
 static uint8_t setThreadLpTimerId;
+static uint8_t srpRegisterTimerId;
 char tmp_tx_buf[256];
 char resource_name[32];
 otIp6Address brAddr;
 
-otExtAddress eui64;
+uint8_t eui64[8];
 const uint8_t device_type = 1;
 bool coapConnectionEstablished = false;
 
+static uint32_t appCoapSendTxCtr = 0;
 static otInstance *sInstance = NULL;
 
 /* Functions Definition ------------------------------------------------------*/
 
 void APP_THREAD_Init(void)
 {
-	/* USER CODE BEGIN APP_THREAD_INIT_1 */
 
-	/* USER CODE END APP_THREAD_INIT_1 */
-	UTIL_LPM_SetStopMode(1 << CFG_LPM_APP_THREAD, UTIL_LPM_DISABLE);
-	SHCI_CmdStatus_t ThreadInitStatus;
+	  /* USER CODE END APP_THREAD_INIT_1 */
+	  SHCI_C2_RADIO_AllowLowPower(THREAD_IP, FALSE);
+	  SHCI_CmdStatus_t ThreadInitStatus;
 
-	/* Check the compatibility with the Coprocessor Wireless Firmware loaded */
-	APP_THREAD_CheckWirelessFirmwareInfo();
+	  /* Check the compatibility with the Coprocessor Wireless Firmware loaded */
+	  APP_THREAD_CheckWirelessFirmwareInfo();
 
-#if (CFG_USB_INTERFACE_ENABLE != 0)
-  VCP_Init(&VcpTxBuffer[0], &VcpRxBuffer[0]);
-#endif /* (CFG_USB_INTERFACE_ENABLE != 0) */
+	#if (CFG_USB_INTERFACE_ENABLE != 0)
+	  VCP_Init(&VcpTxBuffer[0], &VcpRxBuffer[0]);
+	#endif /* (CFG_USB_INTERFACE_ENABLE != 0) */
 
-	/* Register cmdbuffer */
-	APP_THREAD_RegisterCmdBuffer(&ThreadOtCmdBuffer);
+	  /* Register cmdbuffer */
+	  APP_THREAD_RegisterCmdBuffer(&ThreadOtCmdBuffer);
 
-	/**
-	 * Do not allow standby in the application
-	 */
-	UTIL_LPM_SetOffMode(1 << CFG_LPM_APP_THREAD, UTIL_LPM_DISABLE);
-
+	  /**
+	   * Do not allow standby in the application
+	   */
+	  UTIL_LPM_SetOffMode(1 << CFG_LPM_APP_THREAD, UTIL_LPM_DISABLE);
+	  UTIL_LPM_SetStopMode(1 << CFG_LPM_APP_THREAD, UTIL_LPM_DISABLE);
 	/* Init config buffer and call TL_THREAD_Init */
 	APP_THREAD_TL_THREAD_INIT();
 
@@ -190,9 +191,17 @@ void APP_THREAD_Init(void)
 	/* Send Thread start system cmd to M0 */
 	ThreadInitStatus = SHCI_C2_THREAD_Init();
 
+	//otPlatRadioGetIeeeEui64(sInstance, &eui64);
+
 	/* Prevent unused argument(s) compilation warning */
 	UNUSED(ThreadInitStatus);
-
+	sInstance = otInstanceInitSingle();
+	assert(sInstance);
+	APP_THREAD_SetSleepyEndDeviceMode();
+	/* Initialize and configure the Thread device*/
+	otPlatRadioSetTransmitPower(sInstance, 6);
+	APP_THREAD_DeviceConfig();
+	//appSrpInit();
 	/* Register task */
 	/* Create the different tasks */
 	UTIL_SEQ_RegTask(1 << (uint32_t) CFG_TASK_MSG_FROM_M0_TO_M4, UTIL_SEQ_RFU,
@@ -202,55 +211,55 @@ void APP_THREAD_Init(void)
 			(HW_TS_pTimerCb_t) APP_THREAD_SendCoapMsg);
 	HW_TS_Create(CFG_TIM_PROC_ID_ISR, &setThreadLpTimerId, hw_ts_SingleShot,
 			APP_THREAD_SetSleepyEndDeviceMode);
+	HW_TS_Create(CFG_TIM_PROC_ID_ISR, &srpRegisterTimerId, hw_ts_SingleShot,
+			appSrpInit);
 	HW_TS_Start(coapMessageTimerId, coapMessageIntervalMs);
-	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_SET);
-
-	sInstance = otInstanceInitSingle();
-	assert(sInstance);
+	//HW_TS_Start(srpRegisterTimerId, 10 * 1000 * 1000 / CFG_TS_TICK_VAL);
+	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_RESET);
 	/* USER CODE BEGIN INIT TASKS */
-	APP_THREAD_SetSleepyEndDeviceMode();
-	/* Initialize and configure the Thread device*/
-	otPlatRadioSetTransmitPower(sInstance, 6);
-	APP_THREAD_DeviceConfig();
-	//appSrpInit();
+
+
 	UTIL_LPM_SetStopMode(1 << CFG_LPM_APP_THREAD, UTIL_LPM_ENABLE);
 	SHCI_C2_RADIO_AllowLowPower(THREAD_IP, TRUE);
+
 }
 
 void appSrpInit(void)
 {
-	otError error = OT_ERROR_NONE;
+    otError error = OT_ERROR_NONE;
 
-	char *hostName;
-	char *HOST_NAME = "OT-HS-0";
-	uint16_t size;
-	hostName = otSrpClientBuffersGetHostNameString(sInstance, &size);
-	error |= otSrpClientSetHostName(sInstance, HOST_NAME);
-	memcpy(hostName, HOST_NAME, sizeof(HOST_NAME) + 1);
+    char *hostName;
+    char *HOST_NAME = "OT-HS-0";
+    uint16_t size;
+    hostName = otSrpClientBuffersGetHostNameString(sInstance, &size);
+    error |= otSrpClientSetHostName(sInstance, HOST_NAME);
+    memcpy(hostName, HOST_NAME, sizeof(HOST_NAME) + 1);
 
-	otSrpClientEnableAutoHostAddress(sInstance);
+    otSrpClientEnableAutoHostAddress(sInstance);
 
-	otSrpClientBuffersServiceEntry *entry = NULL;
-	char *string;
 
-	entry = otSrpClientBuffersAllocateService(sInstance);
+    otSrpClientBuffersServiceEntry *entry = NULL;
+    char *string;
 
-	entry->mService.mPort = 33434;
-	char INST_NAME[32];
-	snprintf(INST_NAME, 32, "ipv6bc0000");
-	char *SERV_NAME = "_ot._udp";
-	string = otSrpClientBuffersGetServiceEntryInstanceNameString(entry, &size);
-	memcpy(string, INST_NAME, size);
+    entry = otSrpClientBuffersAllocateService(sInstance);
 
-	string = otSrpClientBuffersGetServiceEntryServiceNameString(entry, &size);
-	memcpy(string, SERV_NAME, size);
+    entry->mService.mPort = 33434;
+    char INST_NAME[32];
+    snprintf(INST_NAME, 32, "ipv6bc%d", 255);
+    char *SERV_NAME = "_ot._udp";
+    string = otSrpClientBuffersGetServiceEntryInstanceNameString(entry, &size);
+    memcpy(string, INST_NAME, size);
 
-	error |= otSrpClientAddService(sInstance, &entry->mService);
 
-	entry = NULL;
+    string = otSrpClientBuffersGetServiceEntryServiceNameString(entry, &size);
+    memcpy(string, SERV_NAME, size);
 
-	otSrpClientEnableAutoStartMode(sInstance, NULL, NULL);
+    error |= otSrpClientAddService(sInstance, &entry->mService);
 
+    entry = NULL;
+
+    otSrpClientEnableAutoStartMode(sInstance, /* aCallback */ NULL, /* aContext */ NULL);
+    if(error != OT_ERROR_NONE) HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_SET);
 }
 
 /**
@@ -351,36 +360,12 @@ void APP_THREAD_SetSleepyEndDeviceMode(void)
 	/* Set the sleepy end device mode */
 	OT_LinkMode.mRxOnWhenIdle = 0;
 	OT_LinkMode.mDeviceType = 0;
-	OT_LinkMode.mNetworkData = 0;
+	OT_LinkMode.mNetworkData = 1;
 
 	error = otThreadSetLinkMode(sInstance, OT_LinkMode);
 	if (error != OT_ERROR_NONE)
 		APP_THREAD_Error(ERR_THREAD_LINK_MODE, error);
 
-	  /* After reaching the child or router state, the system
-	   *   a) sets the 'sleepy end device' mode
-	   *   b) perform a Thread stop
-	   *   c) perform a Thread start.
-	   *
-	   *  NOTE : According to the Thread specification, it is necessary to set the
-	   *         mode before starting Thread.
-	   *
-	   * A Child that has attached to its Parent indicating it is an FTD MUST NOT use Child UpdateRequest
-	   * to modify its mode to MTD.
-	   * As a result, you need to first detach from the network before switching from FTD to MTD at runtime,
-	   * then reattach.
-	   *
-	   */
-	  if (sleepyEndDeviceFlag == FALSE)
-	  {
-	    error = otThreadSetEnabled(NULL, false);
-	    if (error != OT_ERROR_NONE)
-	      APP_THREAD_Error(ERR_THREAD_LINK_MODE,error);
-	    error = otThreadSetEnabled(NULL, true);
-	    if (error != OT_ERROR_NONE)
-	      APP_THREAD_Error(ERR_THREAD_LINK_MODE,error);
-	    sleepyEndDeviceFlag = TRUE;
-	  }
 }
 
 /**
@@ -391,8 +376,12 @@ void APP_THREAD_SetSleepyEndDeviceMode(void)
 static void APP_THREAD_DeviceConfig(void)
 {
 	otError error;
-
-	static char aNetworkName[] = "<redacted>";
+	error = otInstanceErasePersistentInfo(sInstance);
+	  if (error != OT_ERROR_NONE)
+	  {
+	    APP_THREAD_Error(ERR_THREAD_ERASE_PERSISTENT_INFO,error);
+	  }
+	static char aNetworkName[] = "OpenThread Test";
 
 	otOperationalDataset aDataset;
 
@@ -403,28 +392,27 @@ static void APP_THREAD_DeviceConfig(void)
 	 *     Network Name, Mesh Local Prefix, Extended PAN ID, PAN ID, Delay Timer,
 	 *     Channel, Channel Mask Page 0, Network Key, PSKc, Security Policy
 	 */
-	//aDataset.mActiveTimestamp.mSeconds             = 1;
+	aDataset.mActiveTimestamp.mSeconds             = 1;
 	aDataset.mComponents.mIsActiveTimestampPresent = true;
 
 	/* Set Channel to 15 */
-	aDataset.mChannel = 15;
+	aDataset.mChannel = 26;
 	aDataset.mComponents.mIsChannelPresent = true;
 
 	/* Set Pan ID to 2222 */
-	aDataset.mPanId = (otPanId) <redacted>;
+	aDataset.mPanId = (otPanId) 0xCCC1;
 	aDataset.mComponents.mIsPanIdPresent = true;
 
 	/* Set Extended Pan ID to  */
 	uint8_t extPanId[OT_EXT_PAN_ID_SIZE] =
-	{ <redacted> };
+	{ 0x11, 0x11, 0x11, 0x11, 0x22, 0x22, 0x22, 0x22 };
 	memcpy(aDataset.mExtendedPanId.m8, extPanId,
 			sizeof(aDataset.mExtendedPanId));
 	aDataset.mComponents.mIsExtendedPanIdPresent = true;
 
 	/* Set network key to  */
 	uint8_t key[OT_NETWORK_KEY_SIZE] =
-	{ ***REMOVED*** 0xca, 0x86, 0x85, 0xab,
-			0x99, 0xda, 0xc9, 0x51 };
+	{ 0x00, 0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88, 0x99, 0xAA, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF };
 	memcpy(aDataset.mNetworkKey.m8, key, sizeof(aDataset.mNetworkKey));
 	aDataset.mComponents.mIsNetworkKeyPresent = true;
 
@@ -477,7 +465,7 @@ static void APP_THREAD_StateNotif(uint32_t NotifFlags, void *pContext)
 	if ((NotifFlags & (uint32_t) OT_CHANGED_THREAD_ROLE)
 			== (uint32_t) OT_CHANGED_THREAD_ROLE)
 	{
-		switch (otThreadGetDeviceRole(NULL))
+		switch (otThreadGetDeviceRole(sInstance))
 		{
 		case OT_DEVICE_ROLE_DISABLED:
 			/* USER CODE BEGIN OT_DEVICE_ROLE_DISABLED */
@@ -490,6 +478,7 @@ static void APP_THREAD_StateNotif(uint32_t NotifFlags, void *pContext)
 		case OT_DEVICE_ROLE_CHILD:
 			/* USER CODE BEGIN OT_DEVICE_ROLE_CHILD */
 			HW_TS_Start(setThreadLpTimerId, (uint32_t) 1000);
+			SHCI_C2_RADIO_AllowLowPower(THREAD_IP, TRUE);
 			break;
 		case OT_DEVICE_ROLE_ROUTER:
 			/* USER CODE BEGIN OT_DEVICE_ROLE_ROUTER */
@@ -596,14 +585,6 @@ static void APP_THREAD_CoapPermissionsRequestHandler(void *pContext,
 	SHCI_C2_RADIO_AllowLowPower(THREAD_IP, FALSE);
 	coapConnectionEstablished = true;
 	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_SET);
-	APP_DBG(
-			" **********************************************************************************"
-					"Received CoAP request**********************************************************"
-					"****************************************************************************"
-					"********************************************************************************"
-					"******************************************************************************"
-					"***********************************************************************",
-			pContext);
 	/* USER CODE BEGIN APP_THREAD_CoapRequestHandler */
 	//GPIO_PinOutSet(IP_LED_PORT, IP_LED_PIN);
 	//printIPv6Addr(&aMessageInfo->mPeerAddr);
@@ -679,41 +660,37 @@ static void APP_THREAD_CoapDataRespHandler(void *pContext, otMessage *pMessage,
  * @param  None
  * @retval None
  */
-static void APP_THREAD_SendCoapMsg(char *buf, bool require_ack)
+static void APP_THREAD_SendCoapMsg(char *buf)
 {
 	if (!coapConnectionEstablished)
 		return;
-	SHCI_C2_RADIO_AllowLowPower(THREAD_IP, FALSE);
 	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_SET);
-	int8_t rssi;
-	int16_t tmp_aux;
-	require_ack = false;
-	//otThreadGetParentLastRssi(NULL, &rssi);
+	SHCI_C2_RADIO_AllowLowPower(THREAD_IP, FALSE);
+
 	sht4x_read(&sensor_data.temp_main, &sensor_data.humidity);
-	//stts22h_temperature_raw_get(&tmp_aux);
-	sensor_data.temp_aux = tmp_aux;
+	stts22h_temperature_raw_get(&sensor_data.temp_aux);
+
 	int8_t state;
-	int8_t ret = 0;
+	int8_t ret = app_algo_proc(sensor_data, false, &state);
 	if (ret == RES_HEAT)
 		sht4x_activate_medium_heater();
-	//if(ret == RES_HEAT)  sht4x_activate_medium_heater();
+	int8_t rssi;
+	otThreadGetParentLastRssi(sInstance, &rssi);
 	/** CoAP Payload String (max <90 chars) **
 	 * device_type (uint8_t): internal use number for indicating sensor type
 	 * eui64 (uint32_t): unique id MSB
 	 * eui64 (uint32_t): unique id LSB
-	 * !radarCoapSendInactive (uint8_t): radar algo state
-	 * result.presence_score (uint32_t): radar presence score
-	 * result.presence_distance (uint32_t): radar presence distance
-	 * opt_buf (uint32_t): light levels in lux
-	 * vdd_meas (uint32_t): supply voltage in mV
+	 * temp_main (int32_t): radar algo state
+	 * humidity (int32_t): radar presence score
+	 * temp_aux (int16_t): radar presence distance
 	 * rssi (int8_t): last rssi from parent
 	 * appCoapSendTxCtr (uint32_t): total CoAP transmissions
 	 */
-	snprintf(tmp_tx_buf, 254, "%d,%x%x%x%x%x%x%x%x,%ld,%ld,%d,%d,%d,%d",
-			device_type, eui64.m8[0], eui64.m8[1], eui64.m8[02], eui64.m8[3],
-			eui64.m8[4], eui64.m8[5], eui64.m8[6], eui64.m8[7],
+	snprintf(tmp_tx_buf, 254, "%d,%x%x%x%x%x%x%x%x,%ld,%ld,%ld,%d,%ld,%d",
+			device_type, eui64[0], eui64[1], eui64[2], eui64[3],
+			eui64[4], eui64[5], eui64[6], eui64[7],
 			sensor_data.temp_main, sensor_data.humidity, sensor_data.temp_aux,
-			ret, rssi, state);
+			rssi, appCoapSendTxCtr++,1800);
 	buf = tmp_tx_buf;
 	APP_DBG("In appthread handler temp:%d hum:%d temp_aux:%d",
 			sensor_data.temp_main, sensor_data.humidity, sensor_data.temp_aux);
@@ -723,9 +700,7 @@ static void APP_THREAD_SendCoapMsg(char *buf, bool require_ack)
 	uint16_t payloadLength = 0;
 
 	// Default parameters
-	otCoapType coapType =
-			require_ack ?
-					OT_COAP_TYPE_CONFIRMABLE : OT_COAP_TYPE_NON_CONFIRMABLE;
+	otCoapType coapType = OT_COAP_TYPE_NON_CONFIRMABLE;
 	otIp6Address coapDestinationIp = brAddr;
 	message = otCoapNewMessage(NULL, NULL);
 
@@ -765,6 +740,7 @@ static void APP_THREAD_SendCoapMsg(char *buf, bool require_ack)
 	}
 	sht4x_measure();
 	SHCI_C2_RADIO_AllowLowPower(THREAD_IP, TRUE);
+	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_RESET);
 }
 
 /* USER CODE END FD_LOCAL_FUNCTIONS */
@@ -881,7 +857,9 @@ void TL_THREAD_NotReceived(TL_EvtPacket_t *Notbuffer)
  */
 void Pre_OtCmdProcessing(void)
 {
+
 	UTIL_SEQ_WaitEvt(EVENT_SYNCHRO_BYPASS_IDLE);
+
 }
 
 /**

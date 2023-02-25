@@ -54,7 +54,7 @@
 
 /* Private defines -----------------------------------------------------------*/
 #define C_SIZE_CMD_STRING       256U
-#define C_PANID                 <redacted>
+#define C_PANID                 0xDEAD
 #define C_CHANNEL_NB            15U
 #define C_STRING_CIRCLE         "O"
 
@@ -362,7 +362,7 @@ static void APP_THREAD_DeviceConfig(void)
 
 	otPlatRadioSetTransmitPower(NULL, 6);
 
-	static char aNetworkName[] = "<redacted>";
+	static char aNetworkName[] = "OpenThread X-1";
 
 	otOperationalDataset aDataset;
 
@@ -381,19 +381,19 @@ static void APP_THREAD_DeviceConfig(void)
 	aDataset.mComponents.mIsChannelPresent = true;
 
 	/* Set Pan ID to 2222 */
-	aDataset.mPanId = (otPanId) <redacted>;
+	aDataset.mPanId = (otPanId) 0xDEAD;
 	aDataset.mComponents.mIsPanIdPresent = true;
 
 	/* Set Extended Pan ID to 7253c0f958e33f94 */
 	uint8_t extPanId[OT_EXT_PAN_ID_SIZE] =
-	{ <redacted> };
+	{ 0x72, 0x53, 0xc0, 0xf9, 0x58, 0xe3, 0x3f, 0x94 };
 	memcpy(aDataset.mExtendedPanId.m8, extPanId,
 			sizeof(aDataset.mExtendedPanId));
 	aDataset.mComponents.mIsExtendedPanIdPresent = true;
 
 	/* Set network key to b3088e0c4c9770a9ca8685ab99dac951 */
 	uint8_t key[OT_NETWORK_KEY_SIZE] =
-	{ ***REMOVED*** 0xca, 0x86, 0x85, 0xab,
+	{ 0xb3, 0x08, 0x8e, 0x0c, 0x4c, 0x97, 0x70, 0xa9, 0xca, 0x86, 0x85, 0xab,
 			0x99, 0xda, 0xc9, 0x51 };
 	memcpy(aDataset.mNetworkKey.m8, key, sizeof(aDataset.mNetworkKey));
 	aDataset.mComponents.mIsNetworkKeyPresent = true;

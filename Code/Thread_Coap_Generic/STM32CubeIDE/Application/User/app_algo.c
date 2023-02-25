@@ -1,9 +1,9 @@
 #include "app_algo.h"
 
-static const int32_t HUMIDITY_TRIG_TH_POS = 80000;
-static const int32_t HUMIDITY_TRIG_TH_NEG = 75000;
+static const int32_t HUMIDITY_TRIG_TH_POS = 92000;
+static const int32_t HUMIDITY_TRIG_TH_NEG = 88000;
 static const uint8_t HUMIDITY_SAMPLES_TRIG_TH = 5;
-static const int32_t TEMPERATURE_COOLDOWN_MAX_ALLOWED_DELTA = 2000;
+static const int32_t TEMPERATURE_COOLDOWN_MAX_ALLOWED_DELTA = 1000;
 
 typedef enum
 {
@@ -70,7 +70,6 @@ void update_sensor_LL(SensorQueueLL *ll, SensorData_t dat)
 		ll->rear = new;
 		ll->size++;
 	}
-	APP_DBG("LL  size :%d\n",ll->size);
 }
 
 uint8_t traverse_sensor_LL(SensorQueueLL *ll, bool isHum, int32_t l_th, int32_t u_th, int32_t *avg_temp, int32_t *avg_hum)
@@ -88,7 +87,6 @@ uint8_t traverse_sensor_LL(SensorQueueLL *ll, bool isHum, int32_t l_th, int32_t 
 		cur = cur->next;
 		ctr++;
 	}
-	APP_DBG("LL Length:%d, size :%d\n", ctr,ll->size);
 
 	return ret;
 }
@@ -129,14 +127,13 @@ eResFsm app_algo_proc(SensorData_t data, bool ext_sig_reset, int8_t *state)
 	case STATE_PRETRIG:
 	{
 		APP_DBG("FSM STATE PRETRIG\n");
-		if (data.humidity < HUMIDITY_TRIG_TH_POS)
+		if (data.humidity < HUMIDITY_TRIG_TH_NEG)
 		{
 			fsm.cur_state = STATE_MEAS;
 			return RES_NONE;
 		}
 		int32_t t, h;
-		//uint8_t ct = traverse_sensor_LL(fsm.data_hist, true, -1, HUMIDITY_TRIG_TH_POS, &t, &h);
-		uint8_t ct = 5;
+		uint8_t ct = traverse_sensor_LL(fsm.data_hist, true, 0, HUMIDITY_TRIG_TH_POS, &t, &h);
 		APP_DBG("Pretrig ctr:%d", ct);
 		if (ct >= HUMIDITY_SAMPLES_TRIG_TH)
 		{
@@ -169,4 +166,3 @@ eResFsm app_algo_proc(SensorData_t data, bool ext_sig_reset, int8_t *state)
 	}
 	return RES_FAULT;
 }
-

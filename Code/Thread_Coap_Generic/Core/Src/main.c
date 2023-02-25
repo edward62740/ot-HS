@@ -143,20 +143,23 @@ int main(void) {
 
 	/* Init code for STM32_WPAN */
 	MX_APPE_Init();
-	app_algo_init();
+
 
 	sensirion_i2c_init(&hi2c1);
 
 	sht4x_enable_low_power_mode(1);
 	platform_stts22h_init(&hi2c1);
-	stts22h_temp_data_rate_set(0x04);
+	stts22h_temp_data_rate_set(0x01);
+	sht4x_measure_blocking_read(&sensor_data.temp_main, &sensor_data.humidity);
+	stts22h_temperature_raw_get(&sensor_data.temp_aux);
+	app_algo_init(sensor_data);
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
 	while (1) {
 		/* USER CODE END WHILE */
 
 		MX_APPE_Process();
-		//sht4x_measure_blocking_read(&sensor_data.temp_main, &sensor_data.humidity);
+
 		/* USER CODE BEGIN 3 */
 	}
 	/* USER CODE END 3 */
@@ -218,22 +221,24 @@ void SystemClock_Config(void)
  * @brief Peripherals Common Clock Configuration
  * @retval None
  */
-void PeriphCommonClock_Config(void) {
-	RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = { 0 };
+void PeriphCommonClock_Config(void)
+{
+  RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
 
-	/** Initializes the peripherals clock
-	 */
-	PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_RFWAKEUP;
-	PeriphClkInitStruct.RFWakeUpClockSelection = RCC_RFWKPCLKSOURCE_LSE;
-	PeriphClkInitStruct.SmpsClockSelection = RCC_SMPSCLKSOURCE_HSE;
-	PeriphClkInitStruct.SmpsDivSelection = RCC_SMPSCLKDIV_RANGE0;
+  /** Initializes the peripherals clock
+  */
+  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_SMPS|RCC_PERIPHCLK_RFWAKEUP;
+  PeriphClkInitStruct.RFWakeUpClockSelection = RCC_RFWKPCLKSOURCE_LSE;
+  PeriphClkInitStruct.SmpsClockSelection = RCC_SMPSCLKSOURCE_HSE;
+  PeriphClkInitStruct.SmpsDivSelection = RCC_SMPSCLKDIV_RANGE0;
 
-	if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK) {
-		Error_Handler();
-	}
-	/* USER CODE BEGIN Smps */
+  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN Smps */
 
-	/* USER CODE END Smps */
+  /* USER CODE END Smps */
 }
 
 /**

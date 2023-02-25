@@ -134,7 +134,7 @@ void MX_APPE_Init(void)
   HW_TS_Init(hw_ts_InitMode_Full, &hrtc); /**< Initialize the TimerServer */
 
 /* USER CODE BEGIN APPE_Init_1 */
-  Init_Debug();
+  //Init_Debug();
   UTIL_LPM_SetStopMode(1 << CFG_LPM_APP, UTIL_LPM_DISABLE);
   UTIL_LPM_SetOffMode(1 << CFG_LPM_APP, UTIL_LPM_DISABLE);
 //  Led_Init();

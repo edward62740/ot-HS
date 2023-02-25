@@ -54,7 +54,7 @@
 
 /* Private defines -----------------------------------------------------------*/
 #define C_SIZE_CMD_STRING       256U
-#define C_PANID                 <redacted>
+#define C_PANID                 0xDEAD
 #define C_CHANNEL_NB            15U
 #define C_STRING_CIRCLE         "O"
 
@@ -360,9 +360,9 @@ static void APP_THREAD_DeviceConfig(void)
 	otError error;
 	otNetworkKey networkKey =
 	{
-	{ ***REMOVED*** 0xca, 0x86, 0x85, 0xab,
+	{ 0xb3, 0x08, 0x8e, 0x0c, 0x4c, 0x97, 0x70, 0xa9, 0xca, 0x86, 0x85, 0xab,
 			0x99, 0xda, 0xc9, 0x51 } };
-    uint8_t extPanId[16] = {<redacted>};
+    uint8_t extPanId[16] = {0x72, 0x53, 0xc0, 0xf9, 0x58, 0xe3, 0x3f, 0x94};
 	error = otInstanceErasePersistentInfo(NULL);
 	if (error != OT_ERROR_NONE)
 	{
@@ -380,7 +380,7 @@ static void APP_THREAD_DeviceConfig(void)
 	{
 		APP_THREAD_Error(ERR_THREAD_SET_CHANNEL, error);
 	}
-	error = otThreadSetNetworkName(NULL, "<redacted>");
+	error = otThreadSetNetworkName(NULL, "OpenThread X-1");
 	error = otLinkSetPanId(NULL, C_PANID);
 	if (error != OT_ERROR_NONE)
 	{

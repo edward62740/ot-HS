@@ -66,7 +66,6 @@ int16_t sht4x_activate_medium_heater(void) {
         return error;
     }
 
-    sensirion_sleep_usec(110000);
 
     return NO_ERROR;
 }
