@@ -1,0 +1,9 @@
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/srp_client_buffers.c:35:7:otSrpClientBuffersGetHostNameString	24	static
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/srp_client_buffers.c:52:15:otSrpClientBuffersGetHostAddressesArray	24	static
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/srp_client_buffers.c:69:33:otSrpClientBuffersAllocateService	24	static
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/srp_client_buffers.c:85:6:otSrpClientBuffersFreeService	24	static
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/srp_client_buffers.c:101:6:otSrpClientBuffersFreeAllServices	24	static
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/srp_client_buffers.c:116:7:otSrpClientBuffersGetServiceEntryServiceNameString	24	static
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/srp_client_buffers.c:134:7:otSrpClientBuffersGetServiceEntryInstanceNameString	24	static
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/srp_client_buffers.c:152:10:otSrpClientBuffersGetServiceEntryTxtBuffer	24	static
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/srp_client_buffers.c:170:14:otSrpClientBuffersGetSubTypeLabelsArray	24	static

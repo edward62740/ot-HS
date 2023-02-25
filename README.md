@@ -24,3 +24,7 @@ It also notifies the application layer when to run the heater.
 <img src="https://github.com/edward62740/ot-HS/blob/master/Doc/fsm.png" width="450">
 
 ## Power Consumption
+Power consumption averages 19uA with a 5s polling, 30s measurement period.
+On a 1200mAh ER14250 cell, this will yield at least 5 years battery life (provided the Thread network has no downtime).
+<br>
+<img src="https://github.com/edward62740/ot-HS/blob/master/Doc/fsm.png" width="650">

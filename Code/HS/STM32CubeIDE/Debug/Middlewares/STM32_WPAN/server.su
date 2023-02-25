@@ -1,0 +1,5 @@
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/server.c:35:9:otServerGetNetDataLocal	32	static
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/server.c:54:9:otServerAddService	24	static
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/server.c:71:9:otServerRemoveService	32	static
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/server.c:93:9:otServerGetNextService	32	static
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/server.c:111:9:otServerRegister	24	static

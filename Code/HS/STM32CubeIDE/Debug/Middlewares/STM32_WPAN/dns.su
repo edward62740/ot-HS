@@ -1,0 +1,9 @@
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/dns.c:33:6:otDnsInitTxtEntryIterator	32	static
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/dns.c:52:9:otDnsGetNextTxtEntry	24	static
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/dns.c:72:6:otDnsSetNameCompressionEnabled	24	static
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/dns.c:89:6:otDnsIsNameCompressionEnabled	16	static
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/dns.c:112:25:otDnsClientGetDefaultConfig	24	static
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/dns.c:129:6:otDnsClientSetDefaultConfig	24	static
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/dns.c:146:9:otDnsClientResolveAddress	32	static
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/dns.c:200:9:otDnsAddressResponseGetHostName	32	static
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/dns.c:222:9:otDnsAddressResponseGetAddress	32	static
