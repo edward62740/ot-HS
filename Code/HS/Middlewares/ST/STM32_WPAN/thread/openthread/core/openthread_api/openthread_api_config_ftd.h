@@ -23,26 +23,26 @@
 #define OPENTHREAD_API_CONFIG_FTD_H_
 
 #ifndef OPENTHREAD_FTD
-#define OPENTHREAD_FTD 1
+#define OPENTHREAD_FTD 0
 #endif
 
 /* Define to 1 if you want to enable default log output. */
-#define OPENTHREAD_CONFIG_LOG_OUTPUT  OPENTHREAD_CONFIG_LOG_OUTPUT_APP
+#define OPENTHREAD_CONFIG_LOG_OUTPUT  OPENTHREAD_CONFIG_LOG_OUTPUT_NONE
 
 /* Define to 1 to enable COAP. */
 #define OPENTHREAD_CONFIG_COAP_API_ENABLE 1
 
 /* Define to 1 to enable the commissioner role. */
-#define OPENTHREAD_CONFIG_COMMISSIONER_ENABLE 1
+#define OPENTHREAD_CONFIG_COMMISSIONER_ENABLE 0
 
 /* Define to 1 to enable the joiner role. */
-#define OPENTHREAD_CONFIG_JOINER_ENABLE 1
+#define OPENTHREAD_CONFIG_JOINER_ENABLE 0
 
 /* Define to 1 to enable DHCPv6 Client. */
 #define OPENTHREAD_CONFIG_DHCP6_CLIENT_ENABLE 1
 
 /* Define to 1 to enable DHCPv6 SERVER. */
-#define OPENTHREAD_CONFIG_DHCP6_SERVER_ENABLE 1
+#define OPENTHREAD_CONFIG_DHCP6_SERVER_ENABLE 0
 
 /* Define to 1 to enable MAC whitelist/blacklist feature. */
 #define OPENTHREAD_CONFIG_MAC_FILTER_ENABLE 1
@@ -51,10 +51,10 @@
 #define OPENTHREAD_CONFIG_TMF_NETDATA_SERVICE_ENABLE 1
 
 /* Define to 1 to enable logging on the platform */
-#define OPENTHREAD_CONFIG_LOG_PLATFORM 1
+#define OPENTHREAD_CONFIG_LOG_PLATFORM 0
 
 /* Define Log Level */
-#define OPENTHREAD_CONFIG_LOG_LEVEL OT_LOG_LEVEL_INFO
+#define OPENTHREAD_CONFIG_LOG_LEVEL OT_LOG_LEVEL_NONE
 
 /* Define to 1 to enable CoAP Secure API */
 #define OPENTHREAD_CONFIG_COAP_SECURE_API_ENABLE 1
@@ -63,16 +63,16 @@
 #define OPENTHREAD_CONFIG_IP6_SLAAC_ENABLE 1
 
 /* Define as 1 to enable saving the settings in RAM instead of flash */
-#define OPENTHREAD_SETTINGS_RAM 0
+#define OPENTHREAD_SETTINGS_RAM 1
 
 /* Define to 1 to use flash API */
-#define OPENTHREAD_CONFIG_PLATFORM_FLASH_API_ENABLE 1
+#define OPENTHREAD_CONFIG_PLATFORM_FLASH_API_ENABLE 0
 
 /* Define to 1 to support ping cli command */
 #define OPENTHREAD_CONFIG_PING_SENDER_ENABLE 1
 
 /* Define to 1 to enable Mle Link Metrics Initiator */
-#define OPENTHREAD_CONFIG_MLE_LINK_METRICS_INITIATOR_ENABLE 1
+#define OPENTHREAD_CONFIG_MLE_LINK_METRICS_INITIATOR_ENABLE 0
 
 /* Define to 1 to enable Mle Link Metrics Subject */
 #define OPENTHREAD_CONFIG_MLE_LINK_METRICS_SUBJECT_ENABLE 1

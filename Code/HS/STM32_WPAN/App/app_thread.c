@@ -107,6 +107,8 @@ static void APP_THREAD_CoapDataRespHandler(void *aContext, otMessage *pMessage,
 static void APP_THREAD_SendCoapMsg(char *buf);
 void appSrpInit(void);
 void APP_THREAD_SetSleepyEndDeviceMode(void);
+
+void srpCb(void *vars);
 /* USER CODE END PFP */
 
 /* Private variables -----------------------------------------------*/
@@ -147,11 +149,12 @@ static const uint32_t coapMessageIntervalMs =
 static uint8_t coapMessageTimerId;
 static uint8_t setThreadLpTimerId;
 static uint8_t srpRegisterTimerId;
+bool srpRunning = false;
 char tmp_tx_buf[256];
 char resource_name[32];
 otIp6Address brAddr;
 
-uint8_t eui64[8];
+otExtAddress eui64;
 const uint8_t device_type = 1;
 bool coapConnectionEstablished = false;
 
@@ -201,7 +204,9 @@ void APP_THREAD_Init(void)
 	/* Initialize and configure the Thread device*/
 	otPlatRadioSetTransmitPower(sInstance, 6);
 	APP_THREAD_DeviceConfig();
-	//appSrpInit();
+
+	otLinkGetFactoryAssignedIeeeEui64(sInstance, &eui64);
+	appSrpInit();
 	/* Register task */
 	/* Create the different tasks */
 	UTIL_SEQ_RegTask(1 << (uint32_t) CFG_TASK_MSG_FROM_M0_TO_M4, UTIL_SEQ_RFU,
@@ -213,8 +218,8 @@ void APP_THREAD_Init(void)
 			APP_THREAD_SetSleepyEndDeviceMode);
 	HW_TS_Create(CFG_TIM_PROC_ID_ISR, &srpRegisterTimerId, hw_ts_SingleShot,
 			appSrpInit);
-	HW_TS_Start(coapMessageTimerId, coapMessageIntervalMs);
-	//HW_TS_Start(srpRegisterTimerId, 10 * 1000 * 1000 / CFG_TS_TICK_VAL);
+	HW_TS_Start(coapMessageTimerId, (5 * 1000 * 1000 / CFG_TS_TICK_VAL));
+
 	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_RESET);
 	/* USER CODE BEGIN INIT TASKS */
 
@@ -224,10 +229,11 @@ void APP_THREAD_Init(void)
 
 }
 
+
 void appSrpInit(void)
 {
     otError error = OT_ERROR_NONE;
-
+    srpRunning = true;
     char *hostName;
     char *HOST_NAME = "OT-HS-0";
     uint16_t size;
@@ -245,7 +251,7 @@ void appSrpInit(void)
 
     entry->mService.mPort = 33434;
     char INST_NAME[32];
-    snprintf(INST_NAME, 32, "ipv6bc%d", 255);
+    snprintf(INST_NAME, 32, "ipv6bc%d", (uint8_t)eui64.m8[0]);
     char *SERV_NAME = "_ot._udp";
     string = otSrpClientBuffersGetServiceEntryInstanceNameString(entry, &size);
     memcpy(string, INST_NAME, size);
@@ -257,10 +263,10 @@ void appSrpInit(void)
     error |= otSrpClientAddService(sInstance, &entry->mService);
 
     entry = NULL;
-
     otSrpClientEnableAutoStartMode(sInstance, /* aCallback */ NULL, /* aContext */ NULL);
     if(error != OT_ERROR_NONE) HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_SET);
 }
+
 
 /**
  * @brief  Trace the error or the warning reported.
@@ -360,7 +366,7 @@ void APP_THREAD_SetSleepyEndDeviceMode(void)
 	/* Set the sleepy end device mode */
 	OT_LinkMode.mRxOnWhenIdle = 0;
 	OT_LinkMode.mDeviceType = 0;
-	OT_LinkMode.mNetworkData = 1;
+	OT_LinkMode.mNetworkData = 0;
 
 	error = otThreadSetLinkMode(sInstance, OT_LinkMode);
 	if (error != OT_ERROR_NONE)
@@ -376,11 +382,7 @@ void APP_THREAD_SetSleepyEndDeviceMode(void)
 static void APP_THREAD_DeviceConfig(void)
 {
 	otError error;
-	error = otInstanceErasePersistentInfo(sInstance);
-	  if (error != OT_ERROR_NONE)
-	  {
-	    APP_THREAD_Error(ERR_THREAD_ERASE_PERSISTENT_INFO,error);
-	  }
+
 	static char aNetworkName[] = "OpenThread Test";
 
 	otOperationalDataset aDataset;
@@ -477,12 +479,14 @@ static void APP_THREAD_StateNotif(uint32_t NotifFlags, void *pContext)
 			break;
 		case OT_DEVICE_ROLE_CHILD:
 			/* USER CODE BEGIN OT_DEVICE_ROLE_CHILD */
-			HW_TS_Start(setThreadLpTimerId, (uint32_t) 1000);
-			SHCI_C2_RADIO_AllowLowPower(THREAD_IP, TRUE);
+			//HW_TS_Start(setThreadLpTimerId, (uint32_t) 1000);
+			//if(!srpRunning) HW_TS_Start(srpRegisterTimerId, coapMessageIntervalMs);
+			//SHCI_C2_RADIO_AllowLowPower(THREAD_IP, TRUE);
+
 			break;
 		case OT_DEVICE_ROLE_ROUTER:
 			/* USER CODE BEGIN OT_DEVICE_ROLE_ROUTER */
-			HW_TS_Start(setThreadLpTimerId, (uint32_t) 1000);
+			//HW_TS_Start(setThreadLpTimerId, (uint32_t) 1000);
 			break;
 		case OT_DEVICE_ROLE_LEADER:
 			/* USER CODE BEGIN OT_DEVICE_ROLE_LEADER */
@@ -687,8 +691,8 @@ static void APP_THREAD_SendCoapMsg(char *buf)
 	 * appCoapSendTxCtr (uint32_t): total CoAP transmissions
 	 */
 	snprintf(tmp_tx_buf, 254, "%d,%x%x%x%x%x%x%x%x,%ld,%ld,%ld,%d,%ld,%d",
-			device_type, eui64[0], eui64[1], eui64[2], eui64[3],
-			eui64[4], eui64[5], eui64[6], eui64[7],
+			device_type, eui64.m8[0], eui64.m8[1], eui64.m8[2], eui64.m8[3],
+			eui64.m8[4], eui64.m8[5], eui64.m8[6], eui64.m8[7],
 			sensor_data.temp_main, sensor_data.humidity, sensor_data.temp_aux,
 			rssi, appCoapSendTxCtr++,1800);
 	buf = tmp_tx_buf;
@@ -702,7 +706,7 @@ static void APP_THREAD_SendCoapMsg(char *buf)
 	// Default parameters
 	otCoapType coapType = OT_COAP_TYPE_NON_CONFIRMABLE;
 	otIp6Address coapDestinationIp = brAddr;
-	message = otCoapNewMessage(NULL, NULL);
+	message = otCoapNewMessage(sInstance, NULL);
 
 	otCoapMessageInit(message, OT_COAP_TYPE_NON_CONFIRMABLE, OT_COAP_CODE_PUT);
 	otCoapMessageGenerateToken(message, OT_COAP_DEFAULT_TOKEN_LENGTH);
@@ -725,14 +729,11 @@ static void APP_THREAD_SendCoapMsg(char *buf)
 	memset(&messageInfo, 0, sizeof(messageInfo));
 	messageInfo.mPeerAddr = coapDestinationIp;
 	messageInfo.mPeerPort = OT_DEFAULT_COAP_PORT;
-	if (coapConnectionEstablished)
-	{
-		error = otCoapSendRequestWithParameters(NULL, message, &messageInfo,
-				NULL,
-				NULL,
-				NULL);
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_1, GPIO_PIN_RESET);
-	}
+	error = otCoapSendRequestWithParameters(sInstance, message, &messageInfo,
+	NULL,
+	NULL,
+	NULL);
+
 
 	if ((error != OT_ERROR_NONE) && (message != NULL))
 	{
