@@ -1,7 +1,7 @@
 #include "app_algo.h"
 
-static const int32_t HUMIDITY_TRIG_TH_POS = 92000;
-static const int32_t HUMIDITY_TRIG_TH_NEG = 88000;
+static const int32_t HUMIDITY_TRIG_TH_POS = 95000;
+static const int32_t HUMIDITY_TRIG_TH_NEG = 92000;
 static const uint8_t HUMIDITY_SAMPLES_TRIG_TH = 5;
 static const int32_t TEMPERATURE_COOLDOWN_MAX_ALLOWED_DELTA = 1000;
 

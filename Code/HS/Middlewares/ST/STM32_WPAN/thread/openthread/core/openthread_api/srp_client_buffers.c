@@ -28,7 +28,7 @@
 /* Include definition of compilation flags requested for OpenThread configuration */
 #include OPENTHREAD_CONFIG_FILE
 
-#ifdef OPENTHREAD_CONFIG_SRP_CLIENT_BUFFERS_ENABLE
+#if OPENTHREAD_CONFIG_SRP_CLIENT_BUFFERS_ENABLE
 
 #include "srp_client_buffers.h"
 

@@ -23,7 +23,7 @@
 #define OPENTHREAD_API_CONFIG_FTD_H_
 
 #ifndef OPENTHREAD_FTD
-#define OPENTHREAD_FTD 0
+#define OPENTHREAD_FTD 1
 #endif
 
 /* Define to 1 if you want to enable default log output. */
@@ -36,7 +36,7 @@
 #define OPENTHREAD_CONFIG_COMMISSIONER_ENABLE 0
 
 /* Define to 1 to enable the joiner role. */
-#define OPENTHREAD_CONFIG_JOINER_ENABLE 0
+#define OPENTHREAD_CONFIG_JOINER_ENABLE 1
 
 /* Define to 1 to enable DHCPv6 Client. */
 #define OPENTHREAD_CONFIG_DHCP6_CLIENT_ENABLE 1
@@ -66,13 +66,13 @@
 #define OPENTHREAD_SETTINGS_RAM 1
 
 /* Define to 1 to use flash API */
-#define OPENTHREAD_CONFIG_PLATFORM_FLASH_API_ENABLE 0
+#define OPENTHREAD_CONFIG_PLATFORM_FLASH_API_ENABLE 1
 
 /* Define to 1 to support ping cli command */
 #define OPENTHREAD_CONFIG_PING_SENDER_ENABLE 1
 
 /* Define to 1 to enable Mle Link Metrics Initiator */
-#define OPENTHREAD_CONFIG_MLE_LINK_METRICS_INITIATOR_ENABLE 0
+#define OPENTHREAD_CONFIG_MLE_LINK_METRICS_INITIATOR_ENABLE 1
 
 /* Define to 1 to enable Mle Link Metrics Subject */
 #define OPENTHREAD_CONFIG_MLE_LINK_METRICS_SUBJECT_ENABLE 1
@@ -84,7 +84,7 @@
 #define OPENTHREAD_CONFIG_DUA_ENABLE 1
 
 /* Define to 1 to enable Thread Test Harness reference device support. */
-#define OPENTHREAD_CONFIG_REFERENCE_DEVICE_ENABLE 1
+#define OPENTHREAD_CONFIG_REFERENCE_DEVICE_ENABLE 0
 
 /* Define to 1 to eanble Config MLR */
 #define OPENTHREAD_CONFIG_MLR_ENABLE 1
@@ -101,7 +101,22 @@
 /* Define to 1 to enable ECDSA support */
 #define OPENTHREAD_CONFIG_ECDSA_ENABLE 1
 
-#define OPENTHREAD_CONFIG_SRP_CLIENT_BUFFERS_ENABLE 1
+/* Define if OPENTHREAD_CONFIG_SRP_CLIENT_ENABLE defined to enable SRP Client buffer support */
+#define OPENTHREAD_CONFIG_SRP_CLIENT_BUFFERS_ENABLE OPENTHREAD_CONFIG_SRP_CLIENT_ENABLE
 
+/* Define to 1 to enable SRP Client AutoStart mode support */
+#define OPENTHREAD_CONFIG_SRP_CLIENT_AUTO_START_API_ENABLE 1
+
+/* Define to 1 to enable TCP support */
+#define OPENTHREAD_CONFIG_TCP_ENABLE 0
+
+/* Define to 1 to enable DNS CLIENT NAT64 mode support */
+#define OPENTHREAD_CONFIG_DNS_CLIENT_NAT64_ENABLE 1
+
+/* Define to 1 to enable DNS CLIENT NAT64 mode support */
+#define OPENTHREAD_CONFIG_DNS_CLIENT_DEFAULT_NAT64_ALLOWED 1
+
+/* Define to 1 to enable DNS CLIENT SD mode support */
+#define OPENTHREAD_CONFIG_DNS_CLIENT_SERVICE_DISCOVERY_ENABLE 1
 
 #endif /* OPENTHREAD_API_CONFIG_FTD_H_ */

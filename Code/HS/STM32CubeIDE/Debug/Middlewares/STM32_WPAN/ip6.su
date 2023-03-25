@@ -31,5 +31,4 @@ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/th
 C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/ip6.c:581:6:otIp6IsSlaacEnabled	24	static
 C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/ip6.c:597:6:otIp6SetSlaacEnabled	24	static
 C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/ip6.c:613:6:otIp6SetSlaacPrefixFilter	24	static
-C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/ip6.c:633:9:otIp6SetMeshLocalIid	24	static
 C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/ip6.c:653:13:otIp6ProtoToString	24	static

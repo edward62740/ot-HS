@@ -137,22 +137,27 @@ int main(void) {
 	MX_RTC_Init();
 	MX_I2C1_Init();
 	/* USER CODE BEGIN 2 */
-
-	/*--[ Scanning Done ]--*/
+	sensirion_i2c_init(&hi2c1);
+	sht4x_enable_low_power_mode(1);
+	platform_stts22h_init(&hi2c1);
+	stts22h_temp_data_rate_set(0x01);
+	for(uint8_t i=0; i<10; i++)
+	{
+		sht4x_measure_blocking_read(&sensor_data.temp_main, &sensor_data.humidity);
+		stts22h_temperature_raw_get(&sensor_data.temp_aux);
+		HAL_Delay(100);
+		HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_1);
+	}
+	app_algo_init(sensor_data);
 	/* USER CODE END 2 */
 
 	/* Init code for STM32_WPAN */
 	MX_APPE_Init();
 
 
-	sensirion_i2c_init(&hi2c1);
 
-	sht4x_enable_low_power_mode(1);
-	platform_stts22h_init(&hi2c1);
-	stts22h_temp_data_rate_set(0x01);
-	sht4x_measure_blocking_read(&sensor_data.temp_main, &sensor_data.humidity);
-	stts22h_temperature_raw_get(&sensor_data.temp_aux);
-	app_algo_init(sensor_data);
+
+
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
 	while (1) {

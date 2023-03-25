@@ -11,5 +11,6 @@ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/th
 C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/dataset.c:210:9:otDatasetSendMgmtActiveSet	32	static
 C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/dataset.c:237:9:otDatasetSendMgmtPendingGet	32	static
 C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/dataset.c:261:9:otDatasetSendMgmtPendingSet	32	static
+C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/dataset.c:289:9:otDatasetGeneratePskc	32	static
 C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/dataset.c:312:9:otNetworkNameFromString	24	static
 C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/dataset.c:330:9:otDatasetParseTlvs	24	static

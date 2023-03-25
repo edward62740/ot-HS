@@ -40,6 +40,5 @@ C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/th
 C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/link.c:780:6:otLinkIsPromiscuous	24	static
 C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/link.c:796:9:otLinkSetPromiscuous	24	static
 C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/link.c:813:10:otLinkGetCcaFailureRate	24	static
-C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/link.c:932:9:otLinkSendEmptyData	24	static
 C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/link.c:949:9:otLinkSetEnabled	24	static
 C:/Users/Workstation/Documents/GitHub/ot-HS/Code/HS/Middlewares/ST/STM32_WPAN/thread/openthread/core/openthread_api/link.c:966:6:otLinkIsEnabled	24	static
