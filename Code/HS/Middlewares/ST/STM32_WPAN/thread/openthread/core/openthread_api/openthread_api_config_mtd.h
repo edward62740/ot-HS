@@ -60,7 +60,7 @@
 #define OPENTHREAD_CONFIG_IP6_SLAAC_ENABLE 1
 
 /* Define as 1 to enable saving the settings in RAM instead of flash */
-#define OPENTHREAD_SETTINGS_RAM 0
+#define OPENTHREAD_SETTINGS_RAM 1
 
 /* Define to 1 to use flash API */
 #define OPENTHREAD_CONFIG_PLATFORM_FLASH_API_ENABLE 1

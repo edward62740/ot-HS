@@ -1,71 +1,11 @@
-/* USER CODE BEGIN Header */
-/**
- ******************************************************************************
- * @file           : main.c
- * @brief          : Main program body
- *
- ******************************************************************************
- * @attention
- *
- * Copyright (c) 2019-2021 STMicroelectronics.
- * All rights reserved.
- *
- * This software is licensed under terms that can be found in the LICENSE file
- * in the root directory of this software component.
- * If no LICENSE file comes with this software, it is provided AS-IS.
- *
- ******************************************************************************
- @verbatim
- ==============================================================================
- ##### IMPORTANT NOTE #####
- ==============================================================================
-
- This application requests having the stm32wb5x_Thread_FTD_fw.bin binary
- flashed on the Wireless Coprocessor.
- If it is not the case, you need to use STM32CubeProgrammer to load the appropriate
- binary.
-
- All available binaries are located under following directory:
- /Projects/STM32_Copro_Wireless_Binaries
-
- Refer to UM2237 to learn how to use/install STM32CubeProgrammer.
- Refer to /Projects/STM32_Copro_Wireless_Binaries/ReleaseNote.html for the
- detailed procedure to change the Wireless Coprocessor binary.
-
- @endverbatim
- ******************************************************************************
- ******************************************************************************
- */
-/* USER CODE END Header */
-/* Includes ------------------------------------------------------------------*/
-
 #include "main.h"
 #include "dbg_trace.h"
 #include "stm_logging.h"
 #include "sensirion_i2c.h"
 #include "sht4x.h"
 #include "app_algo.h"
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
+#include "stts22h_reg.h"
 
-/* USER CODE END Includes */
-
-/* Private typedef -----------------------------------------------------------*/
-/* USER CODE BEGIN PTD */
-
-/* USER CODE END PTD */
-
-/* Private define ------------------------------------------------------------*/
-/* USER CODE BEGIN PD */
-
-/* USER CODE END PD */
-
-/* Private macro -------------------------------------------------------------*/
-/* USER CODE BEGIN PM */
-
-/* USER CODE END PM */
-
-/* Private variables ---------------------------------------------------------*/
 IPCC_HandleTypeDef hipcc;
 
 UART_HandleTypeDef hlpuart1;
@@ -75,11 +15,6 @@ DMA_HandleTypeDef hdma_usart1_tx;
 I2C_HandleTypeDef hi2c1;
 RTC_HandleTypeDef hrtc;
 
-/* USER CODE BEGIN PV */
-
-/* USER CODE END PV */
-
-/* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 void PeriphCommonClock_Config(void);
 static void MX_GPIO_Init(void);
@@ -88,35 +23,17 @@ static void MX_RF_Init(void);
 static void MX_RTC_Init(void);
 static void MX_IPCC_Init(void);
 static void MX_I2C1_Init(void);
-/* USER CODE BEGIN PFP */
 
-/* USER CODE END PFP */
-
-/* Private user code ---------------------------------------------------------*/
-/* USER CODE BEGIN 0 */
-
-/* USER CODE END 0 */
 SensorData_t sensor_data;
-/**
- * @brief  The application entry point.
- * @retval int
- */
+
+
 int main(void) {
 
-	/* USER CODE BEGIN 1 */
-
-	/* USER CODE END 1 */
-
-	/* MCU Configuration--------------------------------------------------------*/
-
-	/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
 	HAL_Init();
 	/* Config code for STM32_WPAN (HSE Tuning must be done before system clock configuration) */
 	MX_APPE_Config();
 
-	/* USER CODE BEGIN Init */
 
-	/* USER CODE END Init */
 
 	/* Configure the system clock */
 	SystemClock_Config();
@@ -126,9 +43,6 @@ int main(void) {
 
 	/* IPCC initialisation */
 	MX_IPCC_Init();
-	/* USER CODE BEGIN SysInit */
-
-	/* USER CODE END SysInit */
 
 	/* Initialize all configured peripherals */
 	MX_GPIO_Init();
@@ -136,38 +50,33 @@ int main(void) {
 	MX_RF_Init();
 	MX_RTC_Init();
 	MX_I2C1_Init();
-	/* USER CODE BEGIN 2 */
+
 	sensirion_i2c_init(&hi2c1);
 	sht4x_enable_low_power_mode(1);
 	platform_stts22h_init(&hi2c1);
 	stts22h_temp_data_rate_set(0x01);
+	app_algo_init(sensor_data);
+
+	// fill algo queue
 	for(uint8_t i=0; i<10; i++)
 	{
 		sht4x_measure_blocking_read(&sensor_data.temp_main, &sensor_data.humidity);
 		stts22h_temperature_raw_get(&sensor_data.temp_aux);
+		int8_t tmp;
+		app_algo_proc(sensor_data, 0, &tmp);
 		HAL_Delay(100);
 		HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_1);
 	}
-	app_algo_init(sensor_data);
-	/* USER CODE END 2 */
+
 
 	/* Init code for STM32_WPAN */
 	MX_APPE_Init();
 
 
 
-
-
-	/* Infinite loop */
-	/* USER CODE BEGIN WHILE */
 	while (1) {
-		/* USER CODE END WHILE */
-
 		MX_APPE_Process();
-
-		/* USER CODE BEGIN 3 */
 	}
-	/* USER CODE END 3 */
 }
 
 /**

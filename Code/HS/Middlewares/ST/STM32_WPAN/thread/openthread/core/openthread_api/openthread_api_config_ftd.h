@@ -23,7 +23,7 @@
 #define OPENTHREAD_API_CONFIG_FTD_H_
 
 #ifndef OPENTHREAD_FTD
-#define OPENTHREAD_FTD 1
+#define OPENTHREAD_FTD 0
 #endif
 
 /* Define to 1 if you want to enable default log output. */
@@ -66,7 +66,7 @@
 #define OPENTHREAD_SETTINGS_RAM 1
 
 /* Define to 1 to use flash API */
-#define OPENTHREAD_CONFIG_PLATFORM_FLASH_API_ENABLE 1
+#define OPENTHREAD_CONFIG_PLATFORM_FLASH_API_ENABLE 0
 
 /* Define to 1 to support ping cli command */
 #define OPENTHREAD_CONFIG_PING_SENDER_ENABLE 1
